@@ -98,6 +98,6 @@ public function testSyncClientPingPong() returns Error? {
     // _ = wait {w1, w2};
     // string msg = "pong received";
     // test:assertEquals(pingPongMsg, msg, msg = "");
-    io:println("Waiting till ping pong client starts reading text.");
+    // io:println("Waiting till ping pong client starts reading text.");
     // runtime:sleep(2);
 }

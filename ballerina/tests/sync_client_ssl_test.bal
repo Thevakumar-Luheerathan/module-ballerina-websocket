@@ -17,7 +17,7 @@
 // import ballerina/lang.runtime as runtime;
 import ballerina/test;
 import ballerina/http;
-import ballerina/io;
+// import ballerina/io;
 
 string sslString = "";
 listener Listener l37 = new(21059, {
@@ -92,5 +92,5 @@ public function testSyncClientSsl() returns Error? {
     // string msg = "Hi world1";
     // test:assertEquals(sslString, msg);
     // test:assertEquals(wsClient.isSecure(), true);
-    io:println("Waiting till SSL client starts reading text.");
+    // io:println("Waiting till SSL client starts reading text.");
 }

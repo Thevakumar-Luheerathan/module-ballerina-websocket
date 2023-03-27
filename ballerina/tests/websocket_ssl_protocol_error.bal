@@ -16,8 +16,8 @@
 
 import ballerina/test;
 import ballerina/http;
-import ballerina/io;
-import ballerina/lang.'string as strings;
+// import ballerina/io;
+// import ballerina/lang.'string as strings;
 
 listener Listener l68 = new(21068, {
     secureSocket: {
@@ -67,5 +67,5 @@ public function testSslProtocolError() returns Error? {
     // } else {
     //     test:assertFail(msg = "Found unexpected output: Expected an error" );
     // }
-    io:println(strings:includes("wsClient.message()", "Received fatal alert"));
+    // io:println(strings:includes("wsClient.message()", "Received fatal alert"));
 }

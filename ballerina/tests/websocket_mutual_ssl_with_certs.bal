@@ -16,7 +16,7 @@
 
 import ballerina/test;
 import ballerina/http;
-import ballerina/io;
+// import ballerina/io;
 
 listener Listener l66 = new(21066, {
     secureSocket: {
@@ -62,5 +62,5 @@ public function testMutualSslWithCertsAndKeys() returns Error? {
     // } else {
     //     test:assertEquals(wsClient.isSecure(), true);
     // }
-    io:println("wsClient.message()");
+    // io:println("wsClient.message()");
 }

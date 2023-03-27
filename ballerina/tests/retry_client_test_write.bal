@@ -16,11 +16,11 @@
 
 // import ballerina/lang.runtime as runtime;
 import ballerina/test;
-import ballerina/io;
+// import ballerina/io;
 
 @test:Config {dependsOn: [testReadRetryFailure]}
 public function testWriteRetryForTextMessages() returns error? {
-    io:println("Executing testWriteRetryForTextMessages...");
+    // io:println("Executing testWriteRetryForTextMessages...");
     // @strand {
     //     thread:"any"
     // }
@@ -56,7 +56,7 @@ public function testWriteRetryForTextMessages() returns error? {
 
 @test:Config {dependsOn: [testWriteRetryForTextMessages]}
 public function testWriteRetryFailureForTextMessages() returns error? {
-    io:println("Executing testWriteRetryFailureForTextMessages...");
+    // io:println("Executing testWriteRetryFailureForTextMessages...");
     // startRemoteServer();
     // Client wsClient = check new("ws://localhost:21078/websocket", {retryConfig: {maxCount: 3}});
     // stopRemoteServer();

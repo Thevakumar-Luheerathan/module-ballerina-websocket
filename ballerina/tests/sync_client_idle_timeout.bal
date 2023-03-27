@@ -15,7 +15,7 @@
 // under the License.
 
 import ballerina/test;
-import ballerina/io;
+// import ballerina/io;
 // import ballerina/lang.runtime as runtime;
 
 string idleTimeOutError = "";
@@ -76,6 +76,6 @@ public function testSyncIdleTimeOutError() returns Error? {
     // test:assertEquals(idleTimeOutError, msg);
     // test:assertEquals(secondReadResp, "Hi world1");
 
-    io:println("Waiting till idle timeout client starts reading text.");
+    // io:println("Waiting till idle timeout client starts reading text.");
     // runtime:sleep(3);
 }

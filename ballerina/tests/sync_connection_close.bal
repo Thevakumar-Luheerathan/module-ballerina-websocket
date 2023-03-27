@@ -15,7 +15,7 @@
 // under the License.
 
 import ballerina/test;
-import ballerina/io;
+// import ballerina/io;
 
 string closeError = "";
 listener Listener l32 = new(21002);
@@ -50,5 +50,5 @@ public function testSyncClientClose() returns Error? {
     // }
     // string msg = "Close the connection: Status code: 1000";
     // test:assertEquals(closeError, msg, msg = "");
-    io:println("1st response received at sync close client :");
+    // io:println("1st response received at sync close client :");
 }

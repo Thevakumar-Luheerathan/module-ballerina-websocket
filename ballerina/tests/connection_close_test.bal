@@ -71,5 +71,5 @@ public function testConnectionErrorWithOnClose() returns Error? {
     //     io:println(conClose);
     //     test:assertFail("Connection close failed");
     // }
-    io:println("");
+    // io:println("");
 }

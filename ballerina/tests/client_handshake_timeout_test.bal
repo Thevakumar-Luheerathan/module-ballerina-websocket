@@ -50,7 +50,7 @@ public function testHandshakeTimeoutError() returns Error? {
    //    io:println(wsClient.message());
    //    test:assertEquals("Error: Handshake timed out", wsClient.message());
    // }
-    io:println("wsClient.message()");
+    // io:println("wsClient.message()");
 }
 
 // Tests reset timeout after a successful handshake

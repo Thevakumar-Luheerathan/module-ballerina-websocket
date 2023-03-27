@@ -15,7 +15,7 @@
 // under the License.
 
 import ballerina/test;
-import ballerina/io;
+// import ballerina/io;
 
 listener Listener l67 = new(21067, {
     secureSocket: {
@@ -53,5 +53,5 @@ public function testDisabledSsl() returns Error? {
     // } else {
     //     test:assertEquals(wsClient.isSecure(), true);
     // }
-    io:println("wsClient.message()");
+    // io:println("wsClient.message()");
 }

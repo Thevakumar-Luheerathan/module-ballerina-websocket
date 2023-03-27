@@ -15,7 +15,7 @@
 // under the License.
 
 import ballerina/test;
-import ballerina/io;
+// import ballerina/io;
 // import ballerina/lang.runtime as runtime;
 
 string aggregatedTextOutput = "";
@@ -108,5 +108,5 @@ public function testSyncClient() returns Error? {
    // test:assertEquals(attr, "testSyncClient");
    // test:assertEquals(connId1, connId2);
    // test:assertEquals(subProtocol, "xml");
-   io:println("Final response received at sync text client :");
+//    io:println("Final response received at sync text client :");
 }

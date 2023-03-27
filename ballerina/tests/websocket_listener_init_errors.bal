@@ -15,7 +15,7 @@
 // under the License.
 
 import ballerina/test;
-import ballerina/http;
+// import ballerina/http;
 
 @test:Config {}
 public function testEmptyForKeystore() returns Error? {
@@ -173,5 +173,5 @@ public function testListenerIncorrectIdleTimeout() returns Error? {
     // } else {
     //     test:assertFail("Expected an incorrect timeout defined error");
     // }
-    http:Ok Ok_ ={};
+    // http:Ok Ok_ ={};
 }

@@ -15,7 +15,7 @@
 // under the License.
 
 import ballerina/test;
-import ballerina/io;
+// import ballerina/io;
 // import ballerina/lang.runtime as runtime;
 
 string corruptedFrameError = "";
@@ -63,6 +63,6 @@ public function testSyncClientError() returns Error? {
     // string msg = "Max frame length of 1 has been exceeded.";
     // test:assertEquals(corruptedFrameError, msg);
 
-    io:println("Waiting till error client starts reading text.");
+    // io:println("Waiting till error client starts reading text.");
     // runtime:sleep(2);
 }

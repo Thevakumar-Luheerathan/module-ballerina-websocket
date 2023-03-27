@@ -16,7 +16,7 @@
 
 import ballerina/test;
 import ballerina/http;
-import ballerina/lang.'string as strings;
+// import ballerina/lang.'string as strings;
 
 string sslErrString = "";
 listener Listener l36 = new(21058, {
@@ -68,5 +68,5 @@ public function testSyncClientSslError() {
 //         sslErrString = wsClient.message();
 //     }
 //     test:assertTrue(strings:includes(sslErrString, "unable to find valid certification path to requested target"));
-    boolean bool = strings:includes("","");
+    // boolean bool = strings:includes("","");
 }

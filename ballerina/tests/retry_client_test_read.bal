@@ -14,9 +14,9 @@
 // specific language governing permissions and limitations
 // under the License.
 
-import ballerina/lang.runtime as runtime;
+// import ballerina/lang.runtime as runtime;
 import ballerina/test;
-import ballerina/io;
+// import ballerina/io;
 import ballerina/jballerina.java;
 
 string rdata2 = "";
@@ -42,8 +42,8 @@ public function testReadRetryHandshake() returns error? {
     //     startRemoteServer();
     // }
     // var waitResp = wait {w1, w2};
-    io:println("Executing testReadRetryHandshake...");
-    runtime:sleep(2);
+    // io:println("Executing testReadRetryHandshake...");
+    // runtime:sleep(2);
 }
 
 @test:Config {dependsOn: [testReadRetryHandshake]}

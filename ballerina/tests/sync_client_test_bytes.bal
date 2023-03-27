@@ -15,7 +15,7 @@
 // under the License.
 
 import ballerina/test;
-import ballerina/io;
+// import ballerina/io;
 // import ballerina/lang.runtime as runtime;
 
 string aggregatedByteOutput = "";
@@ -86,5 +86,5 @@ public function testSyncClientByteArray() returns Error? {
    // string msg = "[72,101,108,108,111][72,101,108,108,111,50][72,101,108,108,111,51][72,101,108,108,111,52][72,101,108,108,111,53]";
    // test:assertEquals(aggregatedByteOutput, msg, msg = "");
   //  runtime:sleep(2);
-   io:println("");
+  //  io:println("");
 }

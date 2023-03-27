@@ -15,7 +15,7 @@
 // under the License.
 
 import ballerina/test;
-import ballerina/lang.'string as strings;
+// import ballerina/lang.'string as strings;
 
 listener Listener l73 = new(21073);
 
@@ -54,5 +54,5 @@ public function testIncorrectPath() returns Error? {
 //    } else {
 //        test:assertFail("Expected an error as the WebSocket handshake failure");
 //    }
-    boolean bool = strings:includes("","");
+    // boolean bool = strings:includes("","");
 }
