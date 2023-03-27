@@ -16,7 +16,7 @@
 
 import ballerina/test;
 import ballerina/io;
-import ballerina/lang.runtime as runtime;
+// import ballerina/lang.runtime as runtime;
 
 string aggregatedTextOutput = "";
 string connId1 = "1";
@@ -94,7 +94,7 @@ public function testSyncClient() returns Error? {
    //    Error? resp1 = wsClient->writeTextMessage("Hi world1");
    //    runtime:sleep(2);
    //    Error? resp2 = wsClient->writeTextMessage("Hi world2");
-      runtime:sleep(2);
+    //   runtime:sleep(2);
    //    Error? resp3 = wsClient->writeTextMessage("Hi world3");
    //    Error? resp4 = wsClient->writeTextMessage("Hi world4");
    //    Error? resp5 = wsClient->writeTextMessage("Hi world5");

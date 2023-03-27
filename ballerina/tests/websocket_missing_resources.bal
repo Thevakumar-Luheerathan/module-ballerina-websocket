@@ -14,7 +14,7 @@
 // specific language governing permissions and limitations
 // under the License.
 
-import ballerina/lang.runtime as runtime;
+// import ballerina/lang.runtime as runtime;
 import ballerina/test;
 import ballerina/http;
 
@@ -120,7 +120,7 @@ public function testMissingOnIdleTimeout() returns Error? {
    // Client wsClient = check new ("ws://localhost:21006/onlyOnText");
    // runtime:sleep(0.5);
    // check wsClient->writeTextMessage("Hi");
-   runtime:sleep(0.5);
+   // runtime:sleep(0.5);
    // test:assertEquals(expectedData, "Hi", msg = "Data mismatched");
    // error? result = wsClient->close(statusCode = 1000, reason = "Close the connection", timeout = 0);
 }

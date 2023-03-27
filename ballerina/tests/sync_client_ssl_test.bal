@@ -14,7 +14,7 @@
 // specific language governing permissions and limitations
 // under the License.
 
-import ballerina/lang.runtime as runtime;
+// import ballerina/lang.runtime as runtime;
 import ballerina/test;
 import ballerina/http;
 import ballerina/io;
@@ -77,7 +77,7 @@ public function testSyncClientSsl() returns Error? {
     // }
     // worker w2 {
     //     io:println("Waiting till SSL client starts reading text.");
-        runtime:sleep(2);
+        // runtime:sleep(2);
     //     var resp1 = wsClient->writeTextMessage("Hi world1");
     //     string removedAttr = <string> wsClient.removeAttribute("test");
     //     test:assertEquals(removedAttr, "testSyncClientSsl");

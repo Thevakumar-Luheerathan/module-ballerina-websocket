@@ -14,7 +14,7 @@
 // specific language governing permissions and limitations
 // under the License.
 
-import ballerina/lang.runtime as runtime;
+// import ballerina/lang.runtime as runtime;
 import ballerina/test;
 import ballerina/http;
 
@@ -81,7 +81,7 @@ service /helloWorld on hl {
 public function testIsOpenCloseCalled() returns error? {
     // Client wsClient = check new("ws://localhost:21001/isOpen/abc;a=4;b=5/barz/xyz/abc/rre/5/true/2.5?para1=value1");
     // check wsClient->writeTextMessage("Hi");
-    runtime:sleep(0.5);
+    // runtime:sleep(0.5);
 
     // test:assertEquals(output, "In service 1 onTextMessage isOpen false");
     // test:assertEquals(pathParam, "xyz");

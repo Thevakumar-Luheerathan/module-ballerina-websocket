@@ -16,7 +16,7 @@
 
 import ballerina/test;
 import ballerina/io;
-import ballerina/lang.runtime as runtime;
+// import ballerina/lang.runtime as runtime;
 
 string pingPongMsg = "";
 listener Listener l35 = new(21057);
@@ -99,5 +99,5 @@ public function testSyncClientPingPong() returns Error? {
     // string msg = "pong received";
     // test:assertEquals(pingPongMsg, msg, msg = "");
     io:println("Waiting till ping pong client starts reading text.");
-    runtime:sleep(2);
+    // runtime:sleep(2);
 }

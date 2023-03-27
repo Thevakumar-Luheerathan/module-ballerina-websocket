@@ -15,7 +15,7 @@
 // under the License.
 
 import ballerina/io;
-import ballerina/lang.runtime as runtime;
+// import ballerina/lang.runtime as runtime;
 import ballerina/test;
 
 listener Listener l22 = new(21018);
@@ -98,7 +98,7 @@ public function testSendText() returns Error? {
 public function testSendBinary() returns Error? {
 //    Client wsClient = check new ("ws://localhost:21018");
 //    byte[] binaryData = [5, 24, 56, 243];
-   runtime:sleep(1);
+//    runtime:sleep(1);
 //    check wsClient->writeBinaryMessage(binaryData);
 //    runtime:sleep(0.5);
 //    byte[] expectedBinData = check wsClient->readBinaryMessage();

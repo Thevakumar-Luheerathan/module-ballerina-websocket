@@ -14,7 +14,7 @@
 // specific language governing permissions and limitations
 // under the License.
 
-import ballerina/lang.runtime as runtime;
+// import ballerina/lang.runtime as runtime;
 import ballerina/test;
 import ballerina/io;
 
@@ -60,7 +60,7 @@ public function testWriteRetryFailureForTextMessages() returns error? {
     // startRemoteServer();
     // Client wsClient = check new("ws://localhost:21078/websocket", {retryConfig: {maxCount: 3}});
     // stopRemoteServer();
-    runtime:sleep(0.5);
+    // runtime:sleep(0.5);
     // check wsClient->writeTextMessage("Hi");
     // Error? writeResp = wsClient->writeTextMessage("Hello");
     // if writeResp is Error {

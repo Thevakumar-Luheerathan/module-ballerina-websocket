@@ -14,7 +14,7 @@
 // specific language governing permissions and limitations
 // under the License.
 
-import ballerina/lang.runtime as runtime;
+// import ballerina/lang.runtime as runtime;
 import ballerina/test;
 
 listener Listener l55 = new(21325);
@@ -74,7 +74,7 @@ public function testOAuth2ClientCredentialsGrantAuthSuccess() returns Error? {
     //     }
     // });
     // check wsClient->writeTextMessage("Hello, World!");
-    runtime:sleep(0.5);
+    // runtime:sleep(0.5);
     // test:assertEquals(wsService55Data, "Hello, World!");
     // error? result = wsClient->close(statusCode = 1000, reason = "Close the connection", timeout = 0);
 }
@@ -102,7 +102,7 @@ public function testOAuth2PasswordGrantAuthSuccess() returns Error? {
     //     }
     // });
     // check wsClient->writeTextMessage("Hello, World!");
-    runtime:sleep(0.5);
+    // runtime:sleep(0.5);
     // test:assertEquals(wsService55Data, "Hello, World!");
     // error? result = wsClient->close(statusCode = 1000, reason = "Close the connection", timeout = 0);
 }
@@ -129,7 +129,7 @@ public function testOAuth2RefreshTokenGrantAuthSuccess() returns Error? {
     //     }
     // });
     // check wsClient->writeTextMessage("Hello, World!");
-    runtime:sleep(0.5);
+    // runtime:sleep(0.5);
     // test:assertEquals(wsService55Data, "Hello, World!");
     // error? result = wsClient->close(statusCode = 1000, reason = "Close the connection", timeout = 0);
 }

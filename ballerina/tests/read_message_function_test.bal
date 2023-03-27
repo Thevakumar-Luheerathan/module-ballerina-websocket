@@ -15,7 +15,7 @@
 // under the License.
 
 import ballerina/test;
-import ballerina/lang.runtime;
+// import ballerina/lang.runtime;
 
 string readMessageStringOutput = "";
 string readMessageByteOutput = "";
@@ -64,7 +64,7 @@ public function testSyncClientReadMessage() returns error? {
    //       readMessageStringOutput = readMessageStringOutput + resp3;
    //    }
 
-      runtime:sleep(3);
+    //   runtime:sleep(3);
 
    //    byte[]|string|Error resp4 = check wsClient->readMessage();
    //    if resp4 is string {

@@ -15,7 +15,7 @@
 // under the License.
 
 import ballerina/io;
-import ballerina/lang.runtime as runtime;
+// import ballerina/lang.runtime as runtime;
 import ballerina/test;
 
 byte[] expectedAutoPongData = [];
@@ -46,7 +46,7 @@ public function testAutoPingPongSupport() returns Error? {
    // Client wsClient = check new ("ws://localhost:21020", {pingPongHandler : new PongService()});
    // byte[] pingData = [5, 24, 56, 243];
    // check wsClient->ping(pingData);
-   runtime:sleep(0.5);
+   // runtime:sleep(0.5);
    // test:assertEquals(expectedAutoPongData, pingData, msg = "Data mismatched");
    // error? result = wsClient->close(statusCode = 1000, reason = "Close the connection", timeout = 0);
 }

@@ -14,7 +14,7 @@
 // specific language governing permissions and limitations
 // under the License.
 
-import ballerina/lang.runtime as runtime;
+// import ballerina/lang.runtime as runtime;
 import ballerina/test;
 
 string arrivedData = "";
@@ -49,7 +49,7 @@ service class ClientService200 {
 @test:Config {}
 public function testClientSuccessWithoutService() returns Error? {
    // Client wsClient = check new ("ws://localhost:21021/client/service/bbe");
-   runtime:sleep(0.5);
+   // runtime:sleep(0.5);
    // test:assertTrue(isClientConnectionOpen);
    // error? result = wsClient->close(statusCode = 1000, reason = "Close the connection", timeout = 0);
 }

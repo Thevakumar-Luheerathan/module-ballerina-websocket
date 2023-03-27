@@ -17,7 +17,7 @@
 import ballerina/test;
 import ballerina/io;
 import ballerina/constraint;
-import ballerina/lang.runtime;
+// import ballerina/lang.runtime;
 
 string errMessage1 = "no error";
 string errMessage2 = "no error";
@@ -237,7 +237,7 @@ public function testDisabledConstraintStringOnServer() returns Error? {
 public function testErrorBinaryOnServer() returns Error? {
     // Client wsClient = check new("ws://localhost:22003/onServerBinaryValidation/");
     // check wsClient->writeMessage("Hello World Hello World".toBytes());
-    runtime:sleep(1);
+    // runtime:sleep(1);
     // test:assertEquals(errMessage2, "Error: data validation failed: error ValidationError (\"Validation failed for '$:length' constraint(s).\")");
 }
 

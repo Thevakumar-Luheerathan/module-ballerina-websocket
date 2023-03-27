@@ -14,7 +14,7 @@
 // specific language governing permissions and limitations
 // under the License.
 
-import ballerina/lang.runtime as runtime;
+// import ballerina/lang.runtime as runtime;
 import ballerina/test;
 import ballerina/io;
 
@@ -80,7 +80,7 @@ public function testLongFrameError() returns Error? {
 //        + "pingpingpingpingpingpingpingpingpingpingpingpingpingping";
 //    byte[] pingData = ping.toBytes();
 //    Client wsClientEp = check new ("ws://localhost:21030/websocket");
-   runtime:sleep(0.5);
+//    runtime:sleep(0.5);
 //    var err = wsClientEp->ping(pingData);
 //    if err is error {
 //        test:assertEquals(err.message(), "ProtocolError: io.netty.handler.codec.TooLongFrameException: " +

@@ -14,7 +14,7 @@
 // specific language governing permissions and limitations
 // under the License.
 
-import ballerina/lang.runtime as runtime;
+// import ballerina/lang.runtime as runtime;
 import ballerina/test;
 import ballerina/io;
 
@@ -50,7 +50,7 @@ service class corruptedService {
 public function testCorruptedFrame() returns Error? {
 //    Client wsClient = check new("ws://localhost:21103/onCorrupt/");
 //    check wsClient->writeTextMessage("Hi");
-   runtime:sleep(3);
+//    runtime:sleep(3);
 //    test:assertEquals(data2, "PayloadTooLargeError: Max frame length of 1 has been exceeded.", msg = "Failed testCorruptedFrame");
 //    error? result = wsClient->close(statusCode = 1000, reason = "Close the connection", timeout = 0);
 }

@@ -14,7 +14,7 @@
 // specific language governing permissions and limitations
 // under the License.
 
-import ballerina/lang.runtime as runtime;
+// import ballerina/lang.runtime as runtime;
 import ballerina/test;
 
 string chunkTextData = "";
@@ -40,7 +40,7 @@ public function testSendTextDataChunkSync() returns Error? {
    // Client wsClient = check new("ws://localhost:21312/onTextDataSync/", config = {maxFrameSize: 1});
    // string textData = "text data";
    // check wsClient->writeTextMessage(textData);
-   runtime:sleep(5);
+  //  runtime:sleep(5);
    // test:assertEquals(chunkTextData, textData, msg = "Failed testSendTextDataChunkSync");
    // Error? errResult = wsClient->close(statusCode = 20);
    // if errResult is Error {

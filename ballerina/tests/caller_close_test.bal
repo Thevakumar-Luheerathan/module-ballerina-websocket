@@ -15,7 +15,7 @@
 // under the License.
 
 import ballerina/test;
-import ballerina/lang.runtime;
+// import ballerina/lang.runtime;
 
 string closeResult = "";
 string close2Result = "";
@@ -52,7 +52,7 @@ public function testCallerClose() returns Error? {
    // if resp is json {
    //     test:assertFail("Expected a connection closure error");
    // }
-   runtime:sleep(8);
+   // runtime:sleep(8);
    // test:assertEquals(closeResult, "success");
    // test:assertEquals(close2Result, "ConnectionClosureError: Close frame already sent. Cannot send close frame again.");
 }

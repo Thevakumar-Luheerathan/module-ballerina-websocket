@@ -14,7 +14,7 @@
 // specific language governing permissions and limitations
 // under the License.
 
-import ballerina/lang.runtime as runtime;
+// import ballerina/lang.runtime as runtime;
 import ballerina/test;
 
 listener Listener l77 = new(21012);
@@ -44,6 +44,6 @@ public function testReadonlyBinary() returns Error? {
     // check wsClient->writeBinaryMessage(bindata);
     // byte[] data = check wsClient->readBinaryMessage();
     // check wsClient->ping(data);
-    runtime:sleep(0.5);
+    // runtime:sleep(0.5);
     // test:assertEquals(data, bindata);
 }

@@ -16,7 +16,7 @@
 
 import ballerina/test;
 import ballerina/io;
-import ballerina/lang.runtime as runtime;
+// import ballerina/lang.runtime as runtime;
 
 string corruptedFrameError = "";
 listener Listener l33 = new(21055);
@@ -64,5 +64,5 @@ public function testSyncClientError() returns Error? {
     // test:assertEquals(corruptedFrameError, msg);
 
     io:println("Waiting till error client starts reading text.");
-    runtime:sleep(2);
+    // runtime:sleep(2);
 }

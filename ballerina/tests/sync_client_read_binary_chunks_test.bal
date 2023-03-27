@@ -14,7 +14,7 @@
 // specific language governing permissions and limitations
 // under the License.
 
-import ballerina/lang.runtime as runtime;
+// import ballerina/lang.runtime as runtime;
 import ballerina/test;
 
 string chunkBinData = "";
@@ -43,7 +43,7 @@ public function testReadBinaryDataChunkSync() returns Error? {
 //     Client wsClient = check new("ws://localhost:21314/onBinDataSync/");
 //     byte[] binaryData = [5, 24, 56, 5, 56, 24];
 //     check wsClient->writeTextMessage("Hi");
-    runtime:sleep(3);
+    // runtime:sleep(3);
     // byte[] resp = check wsClient->readBinaryMessage();
     // test:assertEquals(resp, binaryData, msg = "Failed testReadBinaryDataChunkSync");
     // error? result = wsClient->close(reason = "Close the connection", timeout = 0);

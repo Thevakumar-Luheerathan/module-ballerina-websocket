@@ -14,7 +14,7 @@
 // specific language governing permissions and limitations
 // under the License.
 
-import ballerina/lang.runtime as runtime;
+// import ballerina/lang.runtime as runtime;
 import ballerina/test;
 import ballerina/io;
 
@@ -49,6 +49,6 @@ service class WsService61 {
 public function testErrorReturningFromRemoteFunctionForBinary() returns Error? {
 //    Client wsClient = check new("ws://localhost:2161/onBinString/");
 //    check wsClient->writeBinaryMessage("Hi".toBytes());
-   runtime:sleep(1);
+//    runtime:sleep(1);
 //    test:assertEquals(errbindata, "ConnectionClosureError: Close frame already sent. Cannot push binary data.");
 }

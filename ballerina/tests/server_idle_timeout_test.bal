@@ -14,7 +14,7 @@
 // specific language governing permissions and limitations
 // under the License.
 
-import ballerina/lang.runtime as runtime;
+// import ballerina/lang.runtime as runtime;
 import ballerina/test;
 
 listener Listener l69 = new(21069);
@@ -42,7 +42,7 @@ service class WsService69 {
 @test:Config {}
 public function testServerIdletimeout() returns Error? {
     // Client wsClient = check new("ws://localhost:21069/idleTimeoutError/");
-    runtime:sleep(4);
+    // runtime:sleep(4);
     // Error? res = wsClient->writeTextMessage("Hi");
     // test:assertEquals(timeOutString, "timeOut occured");
     // error? result = wsClient->close(statusCode = 1000, reason = "Close the connection", timeout = 0);

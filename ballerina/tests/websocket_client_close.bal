@@ -15,7 +15,7 @@
 // under the License.
 
 import ballerina/test;
-import ballerina/lang.runtime as runtime;
+// import ballerina/lang.runtime as runtime;
 
 int expectedStatusCode = 0;
 listener Listener l13 = new(21004);
@@ -46,6 +46,6 @@ public function testCloseWithCloseCode() returns Error? {
 public function testCloseWithoutCloseCode() returns Error? {
    // Client wsClient = check new ("ws://localhost:21004/clientClose");
    // error? result = wsClient->close(statusCode = 1000, reason = "Close the connection", timeout = 0);
-   runtime:sleep(5);
+   // runtime:sleep(5);
    // test:assertEquals(expectedStatusCode, 1000, msg = "status code mismatched");
 }

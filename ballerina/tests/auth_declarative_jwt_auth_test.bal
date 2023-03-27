@@ -14,7 +14,7 @@
 // specific language governing permissions and limitations
 // under the License.
 
-import ballerina/lang.runtime as runtime;
+// import ballerina/lang.runtime as runtime;
 import ballerina/test;
 
 listener Listener l51 = new(21320);
@@ -77,7 +77,7 @@ public function testJwtAuthServiceAuthSuccess() returns Error? {
     //     }
     // });
     // check wsClient->writeTextMessage("Hello, World!");
-    runtime:sleep(0.5);
+    // runtime:sleep(0.5);
     // test:assertEquals(wsService51Data, "Hello, World!");
     // error? result = wsClient->close(statusCode = 1000, reason = "Close the connection", timeout = 0);
 }

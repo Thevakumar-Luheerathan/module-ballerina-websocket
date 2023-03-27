@@ -14,7 +14,7 @@
 // specific language governing permissions and limitations
 // under the License.
 
-import ballerina/lang.runtime as runtime;
+// import ballerina/lang.runtime as runtime;
 import ballerina/test;
 import ballerina/io;
 import ballerina/lang.value;
@@ -68,7 +68,7 @@ public function testAttributes() returns Error? {
 //                                        subProtocols: ["xml"]
 //                                    });
 //    check wsClient->writeTextMessage("Hi");
-   runtime:sleep(0.5);
+//    runtime:sleep(0.5);
 //    test:assertEquals(attr1, "testAttr");
 //    test:assertEquals(removedAttr, "removedAttr");
 //    test:assertEquals(isSecure, false);

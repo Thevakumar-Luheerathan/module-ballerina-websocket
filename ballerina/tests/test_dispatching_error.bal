@@ -14,7 +14,7 @@
 // specific language governing permissions and limitations
 // under the License.
 
-import ballerina/lang.runtime as runtime;
+// import ballerina/lang.runtime as runtime;
 import ballerina/test;
 import ballerina/io;
 
@@ -61,7 +61,7 @@ public function testDispatchingErrorOnBinaryMessage() returns Error? {
     // Client wsClient = check new ("ws://localhost:21072/onDispatchError/");
     // byte[] data = [5, 24, 56, 45];
     // check wsClient->writeBinaryMessage(data);
-    runtime:sleep(2);
+    // runtime:sleep(2);
     // test:assertEquals(dispatchedBinaryData, [5, 24, 56]);
     // error? result = wsClient->close(statusCode = 1000, reason = "Close the connection", timeout = 0);
 }

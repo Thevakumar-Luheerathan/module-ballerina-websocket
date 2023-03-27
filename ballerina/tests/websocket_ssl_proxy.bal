@@ -15,7 +15,7 @@
 // under the License.
 
 import ballerina/io;
-import ballerina/lang.runtime as runtime;
+// import ballerina/lang.runtime as runtime;
 import ballerina/test;
 
 listener Listener l24 = new(21027, {
@@ -110,7 +110,7 @@ public function testSslProxySendText() returns Error? {
 //            }
 //        }
 //    });
-   runtime:sleep(1);
+//    runtime:sleep(1);
 //    check wsClient->writeTextMessage("Hi");
 //    runtime:sleep(0.5);
 //    string sslProxyData = check wsClient->readTextMessage();
@@ -132,7 +132,7 @@ public function testSslProxySendBinary() returns Error? {
 //    byte[] binaryData = [5, 24, 56];
 //    runtime:sleep(1);
 //    check wsClient->writeBinaryMessage(binaryData);
-   runtime:sleep(0.5);
+//    runtime:sleep(0.5);
 //    byte[] sslProxyBinData = check wsClient->readBinaryMessage();
 //    test:assertEquals(sslProxyBinData, binaryData, msg = "Data mismatched");
 //    error? result = wsClient->close(statusCode = 1000, reason = "Close the connection", timeout = 0);
