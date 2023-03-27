@@ -63,7 +63,7 @@ service class ErrorServer {
 }
 
 // Connection refused IO error.
-@test:Config {enable:false}
+@test:Config {}
 public function testConnectionError() returns Error? {
 //    Error|Client wsClient = new ("ws://lmnop.ls", config = config);
 //    if wsClient is Error {

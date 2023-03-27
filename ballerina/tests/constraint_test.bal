@@ -285,7 +285,7 @@ public function testReadBinaryError() returns Error? {
 }
 
 // TODO: Enable this after this issue is fixed(https://github.com/ballerina-platform/ballerina-lang/issues/37050)
-@test:Config {enable: false}
+@test:Config {}
 public function testReadTextUnion() returns Error? {
     // Client wsClient = check new("ws://localhost:22003/onTextString/");
     // check wsClient->writeMessage("Hello World Hello Wo");
@@ -297,7 +297,7 @@ public function testReadTextUnion() returns Error? {
 }
 
 // TODO: Enable this after this issue is fixed(https://github.com/ballerina-platform/ballerina-lang/issues/37050)
-@test:Config {enable: false}
+@test:Config {}
 public function testReadTextUnionValidationError() returns Error? {
     // Client wsClient = check new("ws://localhost:22003/onTextString/");
     // check wsClient->writeMessage("Hello World Hello World");

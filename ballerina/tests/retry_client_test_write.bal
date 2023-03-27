@@ -18,7 +18,7 @@
 import ballerina/test;
 // import ballerina/io;
 
-@test:Config {dependsOn: [testReadRetryFailure]}
+@test:Config {}
 public function testWriteRetryForTextMessages() returns error? {
     // io:println("Executing testWriteRetryForTextMessages...");
     // @strand {
@@ -54,7 +54,7 @@ public function testWriteRetryForTextMessages() returns error? {
     // var waitResp = wait {w1, w2};
 }
 
-@test:Config {dependsOn: [testWriteRetryForTextMessages]}
+@test:Config {}
 public function testWriteRetryFailureForTextMessages() returns error? {
     // io:println("Executing testWriteRetryFailureForTextMessages...");
     // startRemoteServer();
@@ -71,7 +71,7 @@ public function testWriteRetryFailureForTextMessages() returns error? {
     // stopRemoteServer();
 }
 
-@test:Config {dependsOn: [testWriteRetryFailureForTextMessages]}
+@test:Config {}
 public function testWriteRetryWithFragmentsForTextMessages() returns error? {
     // io:println("Executing testWriteRetryWithFragmentsForTextMessages...");
     // @strand {
@@ -102,7 +102,7 @@ public function testWriteRetryWithFragmentsForTextMessages() returns error? {
     // var waitResp = wait {w1, w2};
 }
 
-@test:Config {dependsOn: [testWriteRetryWithFragmentsForTextMessages]}
+@test:Config {}
 public function testWriteRetryForBinaryMessages() returns error? {
 //     io:println("Executing testWriteRetryWithFragmentsForTextMessages...");
 //     @strand {
@@ -144,7 +144,7 @@ public function testWriteRetryForBinaryMessages() returns error? {
 //     var waitResp = wait {w1, w2};
 }
 
-@test:Config {dependsOn: [testWriteRetryForBinaryMessages]}
+@test:Config {}
 public function testWriteRetryFailureForBinaryMessages() returns error? {
 //     io:println("Executing testWriteRetryFailureForBinaryMessages...");
 //     startRemoteServer();
@@ -161,7 +161,7 @@ public function testWriteRetryFailureForBinaryMessages() returns error? {
 //     stopRemoteServer();
 }
 
-@test:Config {dependsOn: [testWriteRetryFailureForBinaryMessages]}
+@test:Config {}
 public function testWriteRetryWithFragmentsForBinaryMessages() returns error? {
 //     io:println("Executing testWriteRetryWithFragmentsForBinaryMessages...");
 //     @strand {

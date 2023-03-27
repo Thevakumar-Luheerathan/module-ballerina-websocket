@@ -21,7 +21,7 @@ import ballerina/jballerina.java;
 
 string rdata2 = "";
 
-@test:Config {dependsOn: [testWsUpgradeCancelDueToPathError]}
+@test:Config {}
 public function testReadRetryHandshake() returns error? {
     // @strand {
     //     thread:"any"
@@ -46,7 +46,7 @@ public function testReadRetryHandshake() returns error? {
     // runtime:sleep(2);
 }
 
-@test:Config {dependsOn: [testReadRetryHandshake]}
+@test:Config {}
 public function testReadRetry() returns error? {
     // Client? websocketClient = ();
     // io:println("Executing testReadRetry...");
@@ -79,7 +79,7 @@ public function testReadRetry() returns error? {
     // test:assertEquals(rdata2, "Connected");
 }
 
-@test:Config {dependsOn: [testReadRetry]}
+@test:Config {}
 public function testReadRetryFailure() returns error? {
     // io:println("Executing testReadRetryFailure...");
     // Client|Error wsClient = new("ws://localhost:21800/websocket", {retryConfig: {maxCount: 3}});

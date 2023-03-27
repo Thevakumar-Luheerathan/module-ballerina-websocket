@@ -54,7 +54,6 @@ service class WsService55 {
 }
 
 @test:Config {
-    before: clear
 }
 public function testOAuth2ClientCredentialsGrantAuthSuccess() returns Error? {
     // Client wsClient = check new("ws://localhost:21325/oauthService/", {
@@ -80,7 +79,6 @@ public function testOAuth2ClientCredentialsGrantAuthSuccess() returns Error? {
 }
 
 @test:Config {
-    before: clear
 }
 public function testOAuth2PasswordGrantAuthSuccess() returns Error? {
     // Client wsClient = check new("ws://localhost:21325/oauthService/", {
@@ -108,7 +106,7 @@ public function testOAuth2PasswordGrantAuthSuccess() returns Error? {
 }
 
 @test:Config {
-    before: clear
+
 }
 public function testOAuth2RefreshTokenGrantAuthSuccess() returns Error? {
     // Client wsClient = check new("ws://localhost:21325/oauthService/", {
@@ -135,7 +133,6 @@ public function testOAuth2RefreshTokenGrantAuthSuccess() returns Error? {
 }
 
 @test:Config {
-    before: clear
 }
 public function testOAuth2JwtBearerGrantAuthSuccess() returns Error? {
     // Client wsClient = check new("ws://localhost:21325/oauthService/", {

@@ -126,7 +126,7 @@ public function testPortSharingHttpService() returns error? {
 
 // Test isOpen when a close frame is received
 // Disable due to https://github.com/ballerina-platform/module-ballerina-http/issues/71#issuecomment-707017984
-@test:Config {enable : false}
+@test:Config {}
 public function testIsOpenCloseFrameReceived() returns error? {
     // Client wsClient = check new ("ws://localhost:21001");
     // check wsClient->close(statusCode = 1000, reason = "Close the connection", timeout = 300);
