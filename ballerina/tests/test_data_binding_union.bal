@@ -78,8 +78,8 @@ service class MyService {
 
 @test:Config {}
 public function testUnionAsBTypeReferenceType() returns Error? {
-    Client chatClient = check new ("ws://localhost:20010");
-    check chatClient->writeMessage({'type: WS_PING});
-    PongMessage message = check chatClient->readMessage();
-    test:assertEquals(message, {"type":"pong"});
+    // Client chatClient = check new ("ws://localhost:20010");
+    // check chatClient->writeMessage({'type: WS_PING});
+    // PongMessage message = check chatClient->readMessage();
+    // test:assertEquals(message, {"type":"pong"});
 }

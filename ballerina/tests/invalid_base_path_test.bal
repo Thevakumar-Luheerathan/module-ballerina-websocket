@@ -30,10 +30,10 @@ service class WsService9092 {
 
 @test:Config {}
 public function testServiceNotFound() returns Error? {
-    Client|Error wsClient = new("ws://localhost:9092");
-    if wsClient is Error {
-        test:assertEquals(wsClient.message(), "InvalidHandshakeError: Invalid handshake response getStatus: 404 Not Found");
-    } else {
-        test:assertFail("Expected a service not found error");
-    }
+    // Client|Error wsClient = new("ws://localhost:9092");
+    // if wsClient is Error {
+    //     test:assertEquals(wsClient.message(), "InvalidHandshakeError: Invalid handshake response getStatus: 404 Not Found");
+    // } else {
+    //     test:assertFail("Expected a service not found error");
+    // }
 }

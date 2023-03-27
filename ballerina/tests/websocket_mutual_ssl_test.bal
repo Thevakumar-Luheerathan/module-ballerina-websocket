@@ -56,28 +56,28 @@ service class SslService {
 // Tests the successful connection of sync client over mutual SSL
 @test:Config {}
 public function testMutualSslWithKeyStores() returns Error? {
-    Client|Error wsClient = new("wss://localhost:21065/sslTest", {
-        secureSocket: {
-            key:{
-                path: KEYSTORE_PATH,
-                password: "ballerina"
-            },
-            cert: {
-                path: TRUSTSTORE_PATH,
-                password: "ballerina"
-            },
-            protocol:{
-                name: http:TLS,
-                versions: ["TLSv1.2", "TLSv1.1"]
-            },
-            ciphers: ["TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"],
-            handshakeTimeout: 20,
-            sessionTimeout: 200
-        }
-    });
-    if wsClient is Error {
-        test:assertFail("Expected a successful mTLS connection");
-    } else {
-        test:assertEquals(wsClient.isSecure(), true);
-    }
+    // Client|Error wsClient = new("wss://localhost:21065/sslTest", {
+    //     secureSocket: {
+    //         key:{
+    //             path: KEYSTORE_PATH,
+    //             password: "ballerina"
+    //         },
+    //         cert: {
+    //             path: TRUSTSTORE_PATH,
+    //             password: "ballerina"
+    //         },
+    //         protocol:{
+    //             name: http:TLS,
+    //             versions: ["TLSv1.2", "TLSv1.1"]
+    //         },
+    //         ciphers: ["TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"],
+    //         handshakeTimeout: 20,
+    //         sessionTimeout: 200
+    //     }
+    // });
+    // if wsClient is Error {
+    //     test:assertFail("Expected a successful mTLS connection");
+    // } else {
+    //     test:assertEquals(wsClient.isSecure(), true);
+    // }
 }

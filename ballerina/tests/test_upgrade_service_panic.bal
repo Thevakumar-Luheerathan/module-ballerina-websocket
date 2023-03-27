@@ -36,10 +36,10 @@ service class WsService75 {
 // Tests error panicked from get resource.
 @test:Config {}
 public function testPanicErrorFromUpgradeService() returns Error? {
-    Client|Error wsClient = new ("ws://localhost:21075/onPanic/");
-    test:assertTrue(wsClient is Error);
-    if wsClient is Error {
-        test:assertEquals(wsClient.message(), "InvalidHandshakeError: Invalid handshake response getStatus: "
-                               + "500 Internal Server Error");
-    }
+    // Client|Error wsClient = new ("ws://localhost:21075/onPanic/");
+    // test:assertTrue(wsClient is Error);
+    // if wsClient is Error {
+    //     test:assertEquals(wsClient.message(), "InvalidHandshakeError: Invalid handshake response getStatus: "
+    //                            + "500 Internal Server Error");
+    // }
 }

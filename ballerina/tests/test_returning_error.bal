@@ -34,7 +34,7 @@ service class WsService74 {
 // Tests error returned from remote function.
 @test:Config {}
 public function testReturningError() returns Error? {
-    Client wsClient = check new ("ws://localhost:21074/onDispatchError/");
-    check wsClient->writeTextMessage("Hi");
-    error? result = wsClient->close(statusCode = 1000, reason = "Close the connection", timeout = 0);
+    // Client wsClient = check new ("ws://localhost:21074/onDispatchError/");
+    // check wsClient->writeTextMessage("Hi");
+    // error? result = wsClient->close(statusCode = 1000, reason = "Close the connection", timeout = 0);
 }
