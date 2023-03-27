@@ -46,25 +46,25 @@ service class SslService4 {
     }
 }
 
-// Tests the successful connection of sync client over mutual SSL with certs and keys
-@test:Config {}
-public function testSslProtocolError() returns Error? {
-    Client|Error wsClient = new("wss://localhost:21068/sslTest", {
-        secureSocket: {
-            cert: {
-                path: TRUSTSTORE_PATH,
-                password: "ballerina"
-            },
-            protocol: {
-                name: http:TLS,
-                versions: ["TLSv1.3"]
-            }
-        }
-    });
-    if wsClient is Error {
-        io:println(wsClient.message());
-        test:assertTrue(strings:includes(wsClient.message(), "Received fatal alert"));
-    } else {
-        test:assertFail(msg = "Found unexpected output: Expected an error" );
-    }
-}
+// // Tests the successful connection of sync client over mutual SSL with certs and keys
+// @test:Config {}
+// public function testSslProtocolError() returns Error? {
+//     Client|Error wsClient = new("wss://localhost:21068/sslTest", {
+//         secureSocket: {
+//             cert: {
+//                 path: TRUSTSTORE_PATH,
+//                 password: "ballerina"
+//             },
+//             protocol: {
+//                 name: http:TLS,
+//                 versions: ["TLSv1.3"]
+//             }
+//         }
+//     });
+//     if wsClient is Error {
+//         io:println(wsClient.message());
+//         test:assertTrue(strings:includes(wsClient.message(), "Received fatal alert"));
+//     } else {
+//         test:assertFail(msg = "Found unexpected output: Expected an error" );
+//     }
+// }

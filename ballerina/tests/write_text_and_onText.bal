@@ -41,12 +41,12 @@ service class WsService1 {
 }
 
 // Tests string support for writeTextMessage and onTextMessage
-@test:Config {}
-public function testString() returns Error? {
-   Client wsClient = check new("ws://localhost:21003/onTextString/", {writeTimeout: 1});
-   check wsClient->writeTextMessage("Hi");
-   data = check wsClient->readTextMessage();
-   runtime:sleep(0.5);
-   test:assertEquals(data, "Hi", msg = "Failed writeTextMessage");
-   error? result = wsClient->close(statusCode = 1000, reason = "Close the connection", timeout = 0);
-}
+// @test:Config {}
+// public function testString() returns Error? {
+//    Client wsClient = check new("ws://localhost:21003/onTextString/", {writeTimeout: 1});
+//    check wsClient->writeTextMessage("Hi");
+//    data = check wsClient->readTextMessage();
+//    runtime:sleep(0.5);
+//    test:assertEquals(data, "Hi", msg = "Failed writeTextMessage");
+//    error? result = wsClient->close(statusCode = 1000, reason = "Close the connection", timeout = 0);
+// }

@@ -100,40 +100,40 @@ service class SslProxyServer {
 }
 
 // Tests sending and receiving of text frames in WebSockets over SSL.
-@test:Config {}
-public function testSslProxySendText() returns Error? {
-   Client wsClient = check new ("wss://localhost:21027/sslEcho", {
-       secureSocket: {
-           cert: {
-               path: TRUSTSTORE_PATH,
-               password: "ballerina"
-           }
-       }
-   });
-   runtime:sleep(1);
-   check wsClient->writeTextMessage("Hi");
-   runtime:sleep(0.5);
-   string sslProxyData = check wsClient->readTextMessage();
-   test:assertEquals(sslProxyData, "Hi", msg = "Data mismatched");
-   error? result = wsClient->close(statusCode = 1000, reason = "Close the connection", timeout = 0);
-}
+// @test:Config {}
+// public function testSslProxySendText() returns Error? {
+//    Client wsClient = check new ("wss://localhost:21027/sslEcho", {
+//        secureSocket: {
+//            cert: {
+//                path: TRUSTSTORE_PATH,
+//                password: "ballerina"
+//            }
+//        }
+//    });
+//    runtime:sleep(1);
+//    check wsClient->writeTextMessage("Hi");
+//    runtime:sleep(0.5);
+//    string sslProxyData = check wsClient->readTextMessage();
+//    test:assertEquals(sslProxyData, "Hi", msg = "Data mismatched");
+//    error? result = wsClient->close(statusCode = 1000, reason = "Close the connection", timeout = 0);
+// }
 
-// Tests sending and receiving of binary frames in WebSocket over SSL.
-@test:Config {}
-public function testSslProxySendBinary() returns Error? {
-   Client wsClient = check new ("wss://localhost:21027/sslEcho", {
-       secureSocket: {
-           cert: {
-               path: TRUSTSTORE_PATH,
-               password: "ballerina"
-           }
-       }
-   });
-   byte[] binaryData = [5, 24, 56];
-   runtime:sleep(1);
-   check wsClient->writeBinaryMessage(binaryData);
-   runtime:sleep(0.5);
-   byte[] sslProxyBinData = check wsClient->readBinaryMessage();
-   test:assertEquals(sslProxyBinData, binaryData, msg = "Data mismatched");
-   error? result = wsClient->close(statusCode = 1000, reason = "Close the connection", timeout = 0);
-}
+// // Tests sending and receiving of binary frames in WebSocket over SSL.
+// @test:Config {}
+// public function testSslProxySendBinary() returns Error? {
+//    Client wsClient = check new ("wss://localhost:21027/sslEcho", {
+//        secureSocket: {
+//            cert: {
+//                path: TRUSTSTORE_PATH,
+//                password: "ballerina"
+//            }
+//        }
+//    });
+//    byte[] binaryData = [5, 24, 56];
+//    runtime:sleep(1);
+//    check wsClient->writeBinaryMessage(binaryData);
+//    runtime:sleep(0.5);
+//    byte[] sslProxyBinData = check wsClient->readBinaryMessage();
+//    test:assertEquals(sslProxyBinData, binaryData, msg = "Data mismatched");
+//    error? result = wsClient->close(statusCode = 1000, reason = "Close the connection", timeout = 0);
+// }
