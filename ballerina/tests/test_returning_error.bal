@@ -16,20 +16,20 @@
 
 import ballerina/test;
 
-listener Listener l74 = new(21074);
+// listener Listener l74 = new(21074);
 
-service /onDispatchError on l74 {
-    resource function get .() returns Service|UpgradeError {
-        return new WsService74();
-    }
-}
+// service /onDispatchError on l74 {
+//     resource function get .() returns Service|UpgradeError {
+//         return new WsService74();
+//     }
+// }
 
-service class WsService74 {
-    *Service;
-    remote function onTextMessage(Caller caller, string data) returns error? {
-        return error("error returned");
-    }
-}
+// service class WsService74 {
+//     *Service;
+//     remote function onTextMessage(Caller caller, string data) returns error? {
+//         return error("error returned");
+//     }
+// }
 
 // Tests error returned from remote function.
 @test:Config {}

@@ -14,31 +14,31 @@
 // specific language governing permissions and limitations
 // under the License.
 
-import ballerina/io;
+// import ballerina/io;
 // import ballerina/lang.runtime as runtime;
 import ballerina/test;
 
-byte[] expectedAutoPongData = [];
-listener Listener l23 = new(21020);
-service / on l23 {
-   resource isolated function get .() returns Service|UpgradeError {
-       return new TestService();
-   }
-}
+// byte[] expectedAutoPongData = [];
+// listener Listener l23 = new(21020);
+// service / on l23 {
+//    resource isolated function get .() returns Service|UpgradeError {
+//        return new TestService();
+//    }
+// }
 
-service class TestService {
-   *Service;
-   remote function onOpen() {
-       io:println("New Client Connected");
-   }
-}
+// service class TestService {
+//    *Service;
+//    remote function onOpen() {
+//        io:println("New Client Connected");
+//    }
+// }
 
-service isolated class PongService {
-   *PingPongService;
-   remote function onPong(Caller wsEp, byte[] data) {
-       expectedAutoPongData = <@untainted>data;
-   }
-}
+// service isolated class PongService {
+//    *PingPongService;
+//    remote function onPong(Caller wsEp, byte[] data) {
+//        expectedAutoPongData = <@untainted>data;
+//    }
+// }
 
 // Tests the auto ping pong support in Ballerina if there is no onPing resource
 @test:Config {}

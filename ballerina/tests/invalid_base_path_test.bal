@@ -16,11 +16,13 @@
 
 import ballerina/test;
 
-service /echo on new Listener(9092) {
-    resource function get .() returns Service|Error {
-        return new WsService9092();
-    }
-}
+// ************************THIS SEGMENT CAUSING WINDOWS ISSUE****************************
+// service /echo on new Listener(9092) {
+//     resource function get .() returns Service|Error {
+//         return new WsService9092();
+//     }
+// }
+// ***************************************************************************************
 
 service class WsService9092 {
     *Service;

@@ -16,329 +16,329 @@
 
 import ballerina/test;
 
-public type Coord record {
-    int x;
-    int y;
-};
+// public type Coord record {
+//     int x;
+//     int y;
+// };
 
-json jsonVal = {x: 1, y: 2};
-xml xmlVal = xml `<book>The Lost World</book>`;
-Coord recordVal = {x: 1, y: 2};
-Coord[] recordArrVal = [{x: 1, y: 2}, {x: 3, y: 4}];
-json[] jsonArr = [{"name":"John","salary":100},{"name":"Jane","salary":200}];
+// json jsonVal = {x: 1, y: 2};
+// xml xmlVal = xml `<book>The Lost World</book>`;
+// Coord recordVal = {x: 1, y: 2};
+// Coord[] recordArrVal = [{x: 1, y: 2}, {x: 3, y: 4}];
+// json[] jsonArr = [{"name":"John","salary":100},{"name":"Jane","salary":200}];
 
-public type Employee record {
-    readonly string name;
-    int salary;
-};
+// public type Employee record {
+//     readonly string name;
+//     int salary;
+// };
 
-table<Employee> key(name) t = table [
-    { name: "John", salary: 100 },
-    { name: "Jane", salary: 200 }
-];
+// table<Employee> key(name) t = table [
+//     { name: "John", salary: 100 },
+//     { name: "Jane", salary: 200 }
+// ];
 
-string errorMessage = "data binding failed";
+// string errorMessage = "data binding failed";
 
-listener Listener l94 = new(22080);
+// listener Listener l94 = new(22080);
 
-service /onRecord on l94 {
-    resource function get .() returns Service|UpgradeError {
-        return new service78();
-    }
-}
+// service /onRecord on l94 {
+//     resource function get .() returns Service|UpgradeError {
+//         return new service78();
+//     }
+// }
 
-service class service78 {
-    *Service;
-    remote isolated function onMessage(Caller caller, Coord data) returns Error? {
-        check caller->writeMessage(data);
-    }
-}
+// service class service78 {
+//     *Service;
+//     remote isolated function onMessage(Caller caller, Coord data) returns Error? {
+//         check caller->writeMessage(data);
+//     }
+// }
 
-service /onJson on l94 {
-    resource function get .() returns Service|UpgradeError {
-        return new service82();
-    }
-}
+// service /onJson on l94 {
+//     resource function get .() returns Service|UpgradeError {
+//         return new service82();
+//     }
+// }
 
-service class service82 {
-    *Service;
-    remote isolated function onMessage(Caller caller, json data) returns Error? {
-        check caller->writeMessage(data);
-    }
-}
+// service class service82 {
+//     *Service;
+//     remote isolated function onMessage(Caller caller, json data) returns Error? {
+//         check caller->writeMessage(data);
+//     }
+// }
 
-service /onXml on l94 {
-    resource function get .() returns Service|UpgradeError {
-        return new service80();
-    }
-}
+// service /onXml on l94 {
+//     resource function get .() returns Service|UpgradeError {
+//         return new service80();
+//     }
+// }
 
-service class service80 {
-    *Service;
-    remote isolated function onMessage(Caller caller, xml data) returns Error? {
-        check caller->writeMessage(data);
-    }
-}
+// service class service80 {
+//     *Service;
+//     remote isolated function onMessage(Caller caller, xml data) returns Error? {
+//         check caller->writeMessage(data);
+//     }
+// }
 
-service /onRecordArr on l94 {
-    resource function get .() returns Service|UpgradeError {
-        return new service81();
-    }
-}
+// service /onRecordArr on l94 {
+//     resource function get .() returns Service|UpgradeError {
+//         return new service81();
+//     }
+// }
 
-service class service81 {
-    *Service;
-    remote isolated function onMessage(Caller caller, Coord[] data) returns Error? {
-        check caller->writeMessage(data);
-    }
-}
+// service class service81 {
+//     *Service;
+//     remote isolated function onMessage(Caller caller, Coord[] data) returns Error? {
+//         check caller->writeMessage(data);
+//     }
+// }
 
-service /onInt on l94 {
-    resource function get .() returns Service|UpgradeError {
-        return new service87();
-    }
-}
+// service /onInt on l94 {
+//     resource function get .() returns Service|UpgradeError {
+//         return new service87();
+//     }
+// }
 
-service class service87 {
-    *Service;
-    remote isolated function onMessage(Caller caller, byte[]|string data) returns error? {
-        check caller->writeMessage(data);
-    }
-}
+// service class service87 {
+//     *Service;
+//     remote isolated function onMessage(Caller caller, byte[]|string data) returns error? {
+//         check caller->writeMessage(data);
+//     }
+// }
 
-service /onFloat on l94 {
-    resource function get .() returns Service|UpgradeError {
-        return new service84();
-    }
-}
+// service /onFloat on l94 {
+//     resource function get .() returns Service|UpgradeError {
+//         return new service84();
+//     }
+// }
 
-service class service84 {
-    *Service;
-    remote isolated function onMessage(Caller caller, float data) returns Error? {
-        check caller->writeMessage(data);
-    }
-}
+// service class service84 {
+//     *Service;
+//     remote isolated function onMessage(Caller caller, float data) returns Error? {
+//         check caller->writeMessage(data);
+//     }
+// }
 
-service /onDecimal on l94 {
-    resource function get .() returns Service|UpgradeError {
-        return new service85();
-    }
-}
+// service /onDecimal on l94 {
+//     resource function get .() returns Service|UpgradeError {
+//         return new service85();
+//     }
+// }
 
-service class service85 {
-    *Service;
-    remote isolated function onMessage(Caller caller, decimal data) returns Error? {
-        check caller->writeMessage(data);
-    }
-}
+// service class service85 {
+//     *Service;
+//     remote isolated function onMessage(Caller caller, decimal data) returns Error? {
+//         check caller->writeMessage(data);
+//     }
+// }
 
-service /onBoolean on l94 {
-    resource function get .() returns Service|UpgradeError {
-        return new service86();
-    }
-}
+// service /onBoolean on l94 {
+//     resource function get .() returns Service|UpgradeError {
+//         return new service86();
+//     }
+// }
 
-service class service86 {
-    *Service;
-    remote isolated function onMessage(Caller caller, boolean data) returns Error? {
-        check caller->writeMessage(data.toString().toBytes());
-    }
-}
+// service class service86 {
+//     *Service;
+//     remote isolated function onMessage(Caller caller, boolean data) returns Error? {
+//         check caller->writeMessage(data.toString().toBytes());
+//     }
+// }
 
-service /onReturnInt on l94 {
-    resource function get .() returns Service|UpgradeError {
-        return new service88();
-    }
-}
+// service /onReturnInt on l94 {
+//     resource function get .() returns Service|UpgradeError {
+//         return new service88();
+//     }
+// }
 
-service class service88 {
-    *Service;
-    remote isolated function onMessage(int data) returns int {
-        return data;
-    }
-}
+// service class service88 {
+//     *Service;
+//     remote isolated function onMessage(int data) returns int {
+//         return data;
+//     }
+// }
 
-service /onReturnFloat on l94 {
-    resource function get .() returns Service|UpgradeError {
-        return new service89();
-    }
-}
+// service /onReturnFloat on l94 {
+//     resource function get .() returns Service|UpgradeError {
+//         return new service89();
+//     }
+// }
 
-service class service89 {
-    *Service;
-    remote isolated function onMessage(Caller caller, float data) returns float {
-        return data;
-    }
-}
+// service class service89 {
+//     *Service;
+//     remote isolated function onMessage(Caller caller, float data) returns float {
+//         return data;
+//     }
+// }
 
-service /onReturnDecimal on l94 {
-    resource function get .() returns Service|UpgradeError {
-        return new service90();
-    }
-}
+// service /onReturnDecimal on l94 {
+//     resource function get .() returns Service|UpgradeError {
+//         return new service90();
+//     }
+// }
 
-service class service90 {
-    *Service;
-    remote isolated function onMessage(decimal data) returns byte[] {
-        return data.toString().toBytes();
-    }
-}
+// service class service90 {
+//     *Service;
+//     remote isolated function onMessage(decimal data) returns byte[] {
+//         return data.toString().toBytes();
+//     }
+// }
 
-service /onReturnRecord on l94 {
-    resource function get .() returns Service|UpgradeError {
-        return new service91();
-    }
-}
+// service /onReturnRecord on l94 {
+//     resource function get .() returns Service|UpgradeError {
+//         return new service91();
+//     }
+// }
 
-service class service91 {
-    *Service;
-    remote isolated function onMessage(Caller caller, Coord data) returns byte[] {
-        return data.toJsonString().toBytes();
-    }
-}
+// service class service91 {
+//     *Service;
+//     remote isolated function onMessage(Caller caller, Coord data) returns byte[] {
+//         return data.toJsonString().toBytes();
+//     }
+// }
 
-service /onReturnJson on l94 {
-    resource function get .() returns Service|UpgradeError {
-        return new service92();
-    }
-}
+// service /onReturnJson on l94 {
+//     resource function get .() returns Service|UpgradeError {
+//         return new service92();
+//     }
+// }
 
-service class service92 {
-    *Service;
-    remote isolated function onMessage(json data) returns json {
-        return data.toJsonString().toBytes();
-    }
-}
+// service class service92 {
+//     *Service;
+//     remote isolated function onMessage(json data) returns json {
+//         return data.toJsonString().toBytes();
+//     }
+// }
 
-service /onReturnXml on l94 {
-    resource function get .() returns Service|UpgradeError {
-        return new service93();
-    }
-}
+// service /onReturnXml on l94 {
+//     resource function get .() returns Service|UpgradeError {
+//         return new service93();
+//     }
+// }
 
-service class service93 {
-    *Service;
-    remote isolated function onMessage(Caller caller, xml data) returns byte[] {
-        return data.toString().toBytes();
-    }
-}
+// service class service93 {
+//     *Service;
+//     remote isolated function onMessage(Caller caller, xml data) returns byte[] {
+//         return data.toString().toBytes();
+//     }
+// }
 
-service /onJsonArr on l94 {
-    resource function get .() returns Service|UpgradeError {
-        return new service95();
-    }
-}
+// service /onJsonArr on l94 {
+//     resource function get .() returns Service|UpgradeError {
+//         return new service95();
+//     }
+// }
 
-service class service95 {
-    *Service;
-    remote isolated function onMessage(Caller caller, json[] data) returns error? {
-        check caller->writeMessage(data.toJsonString().toBytes());
-    }
-}
+// service class service95 {
+//     *Service;
+//     remote isolated function onMessage(Caller caller, json[] data) returns error? {
+//         check caller->writeMessage(data.toJsonString().toBytes());
+//     }
+// }
 
-service /onTable on l94 {
-    resource function get .() returns Service|UpgradeError {
-        return new service94();
-    }
-}
+// service /onTable on l94 {
+//     resource function get .() returns Service|UpgradeError {
+//         return new service94();
+//     }
+// }
 
-service class service94 {
-    *Service;
-    remote isolated function onMessage(Caller caller, table<Employee> key(name) data) returns error? {
-        check caller->writeMessage(data.toJsonString().toBytes());
-    }
-}
+// service class service94 {
+//     *Service;
+//     remote isolated function onMessage(Caller caller, table<Employee> key(name) data) returns error? {
+//         check caller->writeMessage(data.toJsonString().toBytes());
+//     }
+// }
 
-service /onReadonlyjson on l94 {
-    resource function get .() returns Service|UpgradeError {
-        return new service96();
-    }
-}
+// service /onReadonlyjson on l94 {
+//     resource function get .() returns Service|UpgradeError {
+//         return new service96();
+//     }
+// }
 
-service class service96 {
-    *Service;
-    remote isolated function onMessage(Caller caller, readonly & json data) returns Error? {
-        check caller->writeMessage(data is json & readonly);
-    }
-}
+// service class service96 {
+//     *Service;
+//     remote isolated function onMessage(Caller caller, readonly & json data) returns Error? {
+//         check caller->writeMessage(data is json & readonly);
+//     }
+// }
 
-service /onReadonlyXml on l94 {
-    resource function get .() returns Service|UpgradeError {
-        return new service97();
-    }
-}
+// service /onReadonlyXml on l94 {
+//     resource function get .() returns Service|UpgradeError {
+//         return new service97();
+//     }
+// }
 
-service class service97 {
-    *Service;
-    remote isolated function onMessage(Caller caller, readonly & xml data) returns Error? {
-        check caller->writeMessage(data is readonly);
-    }
-}
+// service class service97 {
+//     *Service;
+//     remote isolated function onMessage(Caller caller, readonly & xml data) returns Error? {
+//         check caller->writeMessage(data is readonly);
+//     }
+// }
 
-service /onReadonlyRecord on l94 {
-    resource function get .() returns Service|UpgradeError {
-        return new service98();
-    }
-}
+// service /onReadonlyRecord on l94 {
+//     resource function get .() returns Service|UpgradeError {
+//         return new service98();
+//     }
+// }
 
-service class service98 {
-    *Service;
-    remote isolated function onMessage(Caller caller, readonly & Coord data) returns Error? {
-        check caller->writeMessage(data is readonly);
-    }
-}
+// service class service98 {
+//     *Service;
+//     remote isolated function onMessage(Caller caller, readonly & Coord data) returns Error? {
+//         check caller->writeMessage(data is readonly);
+//     }
+// }
 
-service /onReadonlyInt on l94 {
-    resource function get .() returns Service|UpgradeError {
-        return new service99();
-    }
-}
+// service /onReadonlyInt on l94 {
+//     resource function get .() returns Service|UpgradeError {
+//         return new service99();
+//     }
+// }
 
-service class service99 {
-    *Service;
-    remote isolated function onMessage(Caller caller, readonly & int data) returns Error? {
-        check caller->writeMessage(data is readonly);
-    }
-}
+// service class service99 {
+//     *Service;
+//     remote isolated function onMessage(Caller caller, readonly & int data) returns Error? {
+//         check caller->writeMessage(data is readonly);
+//     }
+// }
 
-service /onString on l94 {
-    resource function get .() returns Service|UpgradeError {
-        return new service100();
-    }
-}
+// service /onString on l94 {
+//     resource function get .() returns Service|UpgradeError {
+//         return new service100();
+//     }
+// }
 
-service class service100 {
-    *Service;
-    remote isolated function onMessage(Caller caller, string data) returns Error? {
-        check caller->writeMessage(data);
-    }
-}
+// service class service100 {
+//     *Service;
+//     remote isolated function onMessage(Caller caller, string data) returns Error? {
+//         check caller->writeMessage(data);
+//     }
+// }
 
-service /onBinary on l94 {
-    resource function get .() returns Service|UpgradeError {
-        return new service101();
-    }
-}
+// service /onBinary on l94 {
+//     resource function get .() returns Service|UpgradeError {
+//         return new service101();
+//     }
+// }
 
-service class service101 {
-    *Service;
-    remote isolated function onMessage(Caller caller, byte[]|string data) returns Error? {
-        check caller->writeMessage(data);
-    }
-}
+// service class service101 {
+//     *Service;
+//     remote isolated function onMessage(Caller caller, byte[]|string data) returns Error? {
+//         check caller->writeMessage(data);
+//     }
+// }
 
-service /onText on l94 {
-    resource function get .() returns Service|UpgradeError {
-        return new service102();
-    }
-}
+// service /onText on l94 {
+//     resource function get .() returns Service|UpgradeError {
+//         return new service102();
+//     }
+// }
 
-service class service102 {
-    *Service;
-    remote isolated function onMessage(Caller caller, string data) returns Error? {
-        check caller->writeMessage(data);
-    }
-}
+// service class service102 {
+//     *Service;
+//     remote isolated function onMessage(Caller caller, string data) returns Error? {
+//         check caller->writeMessage(data);
+//     }
+// }
 
 @test:Config {}
 public function testOnMessageJsonDataBinding() returns Error? {

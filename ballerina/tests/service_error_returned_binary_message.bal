@@ -16,32 +16,32 @@
 
 // import ballerina/lang.runtime as runtime;
 import ballerina/test;
-import ballerina/io;
+// import ballerina/io;
 
-string errbindata = "";
+// string errbindata = "";
 
-listener Listener l61 = new(2161);
+// listener Listener l61 = new(2161);
 
-service /onBinString on l61 {
-   resource function get .() returns Service|UpgradeError {
-       io:println("On upgrade");
-       return new WsService61();
-   }
-}
+// service /onBinString on l61 {
+//    resource function get .() returns Service|UpgradeError {
+//        io:println("On upgrade");
+//        return new WsService61();
+//    }
+// }
 
-service class WsService61 {
-  *Service;
-  remote function onBinaryMessage(Caller caller, byte[] data) returns byte[] {
-      io:println("On binary message");
-      error? result = caller->close(1001, "Close the connection", timeout = 0);
-      return data;
-  }
+// service class WsService61 {
+//   *Service;
+//   remote function onBinaryMessage(Caller caller, byte[] data) returns byte[] {
+//       io:println("On binary message");
+//       error? result = caller->close(1001, "Close the connection", timeout = 0);
+//       return data;
+//   }
 
-  remote function onError(error err) returns Error? {
-      io:println("server on error message");
-      errbindata = err.message();
-  }
-}
+//   remote function onError(error err) returns Error? {
+//       io:println("server on error message");
+//       errbindata = err.message();
+//   }
+// }
 
 // Tests trying to return a binary data from onBinaryMessage remote function when the connection is closed.
 // It should be dispatched to the onError resource

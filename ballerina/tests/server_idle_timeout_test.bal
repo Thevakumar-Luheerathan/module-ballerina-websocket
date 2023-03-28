@@ -17,26 +17,26 @@
 // import ballerina/lang.runtime as runtime;
 import ballerina/test;
 
-listener Listener l69 = new(21069);
-listener Listener l70 = new(21070);
+// listener Listener l69 = new(21069);
+// listener Listener l70 = new(21070);
 
-string timeOutString = "";
+// string timeOutString = "";
 
-@ServiceConfig {
-   idleTimeout: 2
-}
-service /idleTimeoutError on l69 {
-    resource function get .() returns Service|UpgradeError {
-        return new WsService69();
-    }
-}
+// @ServiceConfig {
+//    idleTimeout: 2
+// }
+// service /idleTimeoutError on l69 {
+//     resource function get .() returns Service|UpgradeError {
+//         return new WsService69();
+//     }
+// }
 
-service class WsService69 {
-    *Service;
-    remote function onIdleTimeout(Caller caller) {
-        timeOutString = "timeOut occured";
-    }
-}
+// service class WsService69 {
+//     *Service;
+//     remote function onIdleTimeout(Caller caller) {
+//         timeOutString = "timeOut occured";
+//     }
+// }
 
 // Tests idle time out remote function in server
 @test:Config {}

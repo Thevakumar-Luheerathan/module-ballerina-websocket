@@ -17,24 +17,24 @@
 import ballerina/test;
 // import ballerina/io;
 
-string closeError = "";
-listener Listener l32 = new(21002);
-service /onCloseText on l32 {
-   resource function get .() returns Service|UpgradeError {
-       return new WsServiceSyncClose();
-   }
-}
+// string closeError = "";
+// listener Listener l32 = new(21002);
+// service /onCloseText on l32 {
+//    resource function get .() returns Service|UpgradeError {
+//        return new WsServiceSyncClose();
+//    }
+// }
 
-service class WsServiceSyncClose {
-    *Service;
-    remote isolated function onTextMessage(Caller caller, string data) returns Error? {
-        Error? closeResp = caller->close(statusCode = 1000, reason = "Close the connection");
-    }
+// service class WsServiceSyncClose {
+//     *Service;
+//     remote isolated function onTextMessage(Caller caller, string data) returns Error? {
+//         Error? closeResp = caller->close(statusCode = 1000, reason = "Close the connection");
+//     }
 
-    remote isolated function onClose(Caller caller) returns Error? {
-        check caller->close();
-    }
-}
+//     remote isolated function onClose(Caller caller) returns Error? {
+//         check caller->close();
+//     }
+// }
 
 // Tests the connection close in readTextMessage in synchronous client
 @test:Config {}

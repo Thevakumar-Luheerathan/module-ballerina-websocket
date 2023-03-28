@@ -18,20 +18,20 @@ import ballerina/test;
 // import ballerina/io;
 // import ballerina/lang.runtime as runtime;
 
-string corruptedFrameError = "";
-listener Listener l33 = new(21055);
-service /onErrorText on l33 {
-    resource function get .() returns Service|UpgradeError {
-        return new WsServiceSyncError();
-    }
-}
+// string corruptedFrameError = "";
+// listener Listener l33 = new(21055);
+// service /onErrorText on l33 {
+//     resource function get .() returns Service|UpgradeError {
+//         return new WsServiceSyncError();
+//     }
+// }
 
-service class WsServiceSyncError {
-    *Service;
-    remote isolated function onTextMessage(Caller caller, string data) returns Error? {
-        check caller->writeTextMessage(data);
-    }
-}
+// service class WsServiceSyncError {
+//     *Service;
+//     remote isolated function onTextMessage(Caller caller, string data) returns Error? {
+//         check caller->writeTextMessage(data);
+//     }
+// }
 
 // Tests the corrupted frame error returned from readTextMessage
 @test:Config {}

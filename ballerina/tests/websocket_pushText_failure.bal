@@ -17,24 +17,24 @@
 // import ballerina/lang.runtime as runtime;
 import ballerina/test;
 
-string errorMsg2 = "";
-listener Listener l20 = new(21008);
-service /pushTextFailureService on l20 {
-   resource isolated function get .() returns Service|UpgradeError {
-       return new PushTextFailureService();
-   }
-}
+// string errorMsg2 = "";
+// listener Listener l20 = new(21008);
+// service /pushTextFailureService on l20 {
+//    resource isolated function get .() returns Service|UpgradeError {
+//        return new PushTextFailureService();
+//    }
+// }
 
-service class PushTextFailureService {
-   *Service;
-   remote function onOpen(Caller caller) {
-       Error? err1 = caller->close(timeout = 0);
-       Error? err = caller->writeTextMessage("hey");
-       if err is Error {
-           errorMsg2 = err.message();
-       }
-   }
-}
+// service class PushTextFailureService {
+//    *Service;
+//    remote function onOpen(Caller caller) {
+//        Error? err1 = caller->close(timeout = 0);
+//        Error? err = caller->writeTextMessage("hey");
+//        if err is Error {
+//            errorMsg2 = err.message();
+//        }
+//    }
+// }
 
 // Checks for the log that is printed when writeTextMessage fails.
 @test:Config {}

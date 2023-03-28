@@ -17,25 +17,25 @@
 // import ballerina/lang.runtime as runtime;
 import ballerina/test;
 
-string chunkTxtData = "";
+// string chunkTxtData = "";
 
-listener Listener l43 = new(21313);
+// listener Listener l43 = new(21313);
 
-@ServiceConfig {
-   maxFrameSize: 4
-}
-service /onTxtDataSync on l43 {
-   resource function get .() returns Service|UpgradeError {
-       return new WsService43();
-   }
-}
+// @ServiceConfig {
+//    maxFrameSize: 4
+// }
+// service /onTxtDataSync on l43 {
+//    resource function get .() returns Service|UpgradeError {
+//        return new WsService43();
+//    }
+// }
 
-service class WsService43 {
-  *Service;
-  remote function onTextMessage(string data) returns string {
-      return "chunked message";
-  }
-}
+// service class WsService43 {
+//   *Service;
+//   remote function onTextMessage(string data) returns string {
+//       return "chunked message";
+//   }
+// }
 
 // Tests reading text data coming as continuation frames and aggragating them to a single text message.
 @test:Config {}

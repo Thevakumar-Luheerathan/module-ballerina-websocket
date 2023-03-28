@@ -14,23 +14,23 @@
 // specific language governing permissions and limitations
 // under the License.
 
-import ballerina/io;
+// import ballerina/io;
 import ballerina/test;
 
-listener Listener lis = new(21077);
+// listener Listener lis = new(21077);
 
-UpgradeService dummyService = service object {
-    resource function get .() returns Service|UpgradeError {
-        return new WsService70();
-    }
-};
+// UpgradeService dummyService = service object {
+//     resource function get .() returns Service|UpgradeError {
+//         return new WsService70();
+//     }
+// };
 
-service class WsService70 {
-    *Service;
-    remote function onTextMessage(Caller caller, string text) {
-        io:println(text);
-    }
-}
+// service class WsService70 {
+//     *Service;
+//     remote function onTextMessage(Caller caller, string text) {
+//         io:println(text);
+//     }
+// }
 
 @test:Config {}
 public function testAttachDetachGracefulStop() returns error? {

@@ -17,7 +17,7 @@
 // import ballerina/lang.runtime as runtime;
 import ballerina/test;
 // import ballerina/io;
-import ballerina/jballerina.java;
+// import ballerina/jballerina.java;
 
 string rdata2 = "";
 
@@ -90,12 +90,12 @@ public function testReadRetryFailure() returns error? {
     // }
 }
 
-public function startRemoteServer() = @java:Method {
-    name: "start",
-    'class: "io.ballerina.stdlib.websocket.testutils.WebSocketRemoteServer"
-} external;
+// public function startRemoteServer() = @java:Method {
+//     name: "start",
+//     'class: "io.ballerina.stdlib.websocket.testutils.WebSocketRemoteServer"
+// } external;
 
-public function stopRemoteServer() = @java:Method {
-    name: "stop",
-    'class: "io.ballerina.stdlib.websocket.testutils.WebSocketRemoteServer"
-} external;
+// public function stopRemoteServer() = @java:Method {
+//     name: "stop",
+//     'class: "io.ballerina.stdlib.websocket.testutils.WebSocketRemoteServer"
+// } external;

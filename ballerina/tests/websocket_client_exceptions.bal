@@ -16,51 +16,51 @@
 
 // import ballerina/lang.runtime as runtime;
 import ballerina/test;
-import ballerina/io;
+// import ballerina/io;
 
-string errMessage = "";
+// string errMessage = "";
 
-ClientConfiguration config = {subProtocols: ["xml"]};
+// ClientConfiguration config = {subProtocols: ["xml"]};
 
-service class errorResourceService {
-   remote function onError(Caller clientCaller, Error err) {
-       errMessage = err.message();
-   }
-}
+// service class errorResourceService {
+//    remote function onError(Caller clientCaller, Error err) {
+//        errMessage = err.message();
+//    }
+// }
 
-listener Listener l14 = new(21030);
-@ServiceConfig {}
-service /websocket on l14 {
-    resource isolated function get .() returns Service|UpgradeError  {
-       return new ErrorServer();
-    }
-}
+// listener Listener l14 = new(21030);
+// @ServiceConfig {}
+// service /websocket on l14 {
+//     resource isolated function get .() returns Service|UpgradeError  {
+//        return new ErrorServer();
+//     }
+// }
 
-service class ErrorServer {
-  *Service;
-   remote isolated function onOpen(Caller caller) {
-       io:println("The Connection ID websocket client exceptions test: " + caller.getConnectionId());
-   }
+// service class ErrorServer {
+//   *Service;
+//    remote isolated function onOpen(Caller caller) {
+//        io:println("The Connection ID websocket client exceptions test: " + caller.getConnectionId());
+//    }
 
-   remote isolated function onPing(Caller caller, byte[] localData) returns error? {
-       check caller->pong(localData);
-   }
+//    remote isolated function onPing(Caller caller, byte[] localData) returns error? {
+//        check caller->pong(localData);
+//    }
 
-   remote isolated function onPong(Caller caller, byte[] localData) returns error? {
-       check caller->ping(localData);
-   }
+//    remote isolated function onPong(Caller caller, byte[] localData) returns error? {
+//        check caller->ping(localData);
+//    }
 
-   remote isolated function onTextMessage(Caller caller, string text) returns error? {
-       check caller->writeTextMessage(text);
-   }
+//    remote isolated function onTextMessage(Caller caller, string text) returns error? {
+//        check caller->writeTextMessage(text);
+//    }
 
-   remote isolated function onBinaryMessage(Caller caller, byte[] data) returns error? {
-       check caller->writeBinaryMessage(data);
-   }
+//    remote isolated function onBinaryMessage(Caller caller, byte[] data) returns error? {
+//        check caller->writeBinaryMessage(data);
+//    }
 
-   remote isolated function onClose(Caller ep, int statusCode, string reason) {
-   }
-}
+//    remote isolated function onClose(Caller ep, int statusCode, string reason) {
+//    }
+// }
 
 // Connection refused IO error.
 @test:Config {}

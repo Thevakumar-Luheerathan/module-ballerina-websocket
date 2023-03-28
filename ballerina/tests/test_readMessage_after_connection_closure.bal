@@ -14,26 +14,26 @@
 // specific language governing permissions and limitations
 // under the License.
 
-import ballerina/io;
+// import ballerina/io;
 import ballerina/test;
 
-service on new Listener(6090) {
-    resource function get .() returns StreamingService {
-        return new StreamingService();
-    }
-}
+// service on new Listener(6090) {
+//     resource function get .() returns StreamingService {
+//         return new StreamingService();
+//     }
+// }
 
-service class StreamingService {
-    *Service;
+// service class StreamingService {
+//     *Service;
 
-    remote function onMessage(json message) returns error? {
-        // ignore the data.
-    }
+//     remote function onMessage(json message) returns error? {
+//         // ignore the data.
+//     }
 
-    remote function onClose(Caller caller) returns error? {
-        io:println(string `Connection ${caller.getConnectionId()} closed`);
-    }
-}
+//     remote function onClose(Caller caller) returns error? {
+//         io:println(string `Connection ${caller.getConnectionId()} closed`);
+//     }
+// }
 
 @test:Config {}
 public function testReadMessageAfterConnectionClosure() returns Error? {

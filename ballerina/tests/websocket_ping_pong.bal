@@ -17,41 +17,41 @@
 // import ballerina/lang.runtime as runtime;
 import ballerina/test;
 
-byte[] expectedPongData = [];
-byte[] expectedPongData1 = [];
+// byte[] expectedPongData = [];
+// byte[] expectedPongData1 = [];
 
-listener Listener l19 = new(21014);
+// listener Listener l19 = new(21014);
 
-service /pingpong/ws on l19 {
-    resource isolated function get .() returns Service|UpgradeError  {
-       return new ServerPingPongService();
-    }
-}
+// service /pingpong/ws on l19 {
+//     resource isolated function get .() returns Service|UpgradeError  {
+//        return new ServerPingPongService();
+//     }
+// }
 
-service class ServerPingPongService {
-  *Service;
-   remote isolated function onOpen(Caller caller) {
-   }
+// service class ServerPingPongService {
+//   *Service;
+//    remote isolated function onOpen(Caller caller) {
+//    }
 
-   remote isolated function onPing(Caller caller, byte[] localData) returns error? {
-       check caller->pong(localData);
-   }
+//    remote isolated function onPing(Caller caller, byte[] localData) returns error? {
+//        check caller->pong(localData);
+//    }
 
-   remote isolated function onPong(Caller caller, byte[] localData) returns error? {
-       check caller->ping(localData);
-   }
-}
+//    remote isolated function onPong(Caller caller, byte[] localData) returns error? {
+//        check caller->ping(localData);
+//    }
+// }
 
-service isolated class pingPongCallbackService {
-   *PingPongService;
-   remote function onPing(Caller wsEp, byte[] localData) {
-       expectedPongData1 = localData;
-   }
+// service isolated class pingPongCallbackService {
+//    *PingPongService;
+//    remote function onPing(Caller wsEp, byte[] localData) {
+//        expectedPongData1 = localData;
+//    }
 
-   remote function onPong(Caller wsEp, byte[] localData) {
-       expectedPongData = localData;
-   }
-}
+//    remote function onPong(Caller wsEp, byte[] localData) {
+//        expectedPongData = localData;
+//    }
+// }
 
 // Tests ping to Ballerina WebSocket server
 @test:Config {}

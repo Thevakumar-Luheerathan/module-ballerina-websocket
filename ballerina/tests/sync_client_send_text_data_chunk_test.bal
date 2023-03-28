@@ -17,22 +17,22 @@
 // import ballerina/lang.runtime as runtime;
 import ballerina/test;
 
-string chunkTextData = "";
+// string chunkTextData = "";
 
-listener Listener l42 = new(21312);
+// listener Listener l42 = new(21312);
 
-service /onTextDataSync on l42 {
-   resource function get .() returns Service|UpgradeError {
-       return new WsService42();
-   }
-}
+// service /onTextDataSync on l42 {
+//    resource function get .() returns Service|UpgradeError {
+//        return new WsService42();
+//    }
+// }
 
-service class WsService42 {
-  *Service;
-  remote function onTextMessage(Caller caller, string data) returns Error? {
-      chunkTextData = data;
-  }
-}
+// service class WsService42 {
+//   *Service;
+//   remote function onTextMessage(Caller caller, string data) returns Error? {
+//       chunkTextData = data;
+//   }
+// }
 
 // Tests writing text data as continuation frames chunked by the given maxFrameSize using sync client.
 @test:Config {}

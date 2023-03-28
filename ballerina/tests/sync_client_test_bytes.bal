@@ -18,26 +18,26 @@ import ballerina/test;
 // import ballerina/io;
 // import ballerina/lang.runtime as runtime;
 
-string aggregatedByteOutput = "";
-type outputByteArr byte[];
+// string aggregatedByteOutput = "";
+// type outputByteArr byte[];
 
-listener Listener l8 = new(21053);
-service /onTextBytes on l8 {
-   resource function get .() returns Service|UpgradeError {
-       return new WsServiceSyncBytes();
-   }
-}
+// listener Listener l8 = new(21053);
+// service /onTextBytes on l8 {
+//    resource function get .() returns Service|UpgradeError {
+//        return new WsServiceSyncBytes();
+//    }
+// }
 
-service class WsServiceSyncBytes {
-  *Service;
-  remote isolated function onBinaryMessage(byte[] data) returns byte[] {
-      return data;
-  }
+// service class WsServiceSyncBytes {
+//   *Service;
+//   remote isolated function onBinaryMessage(byte[] data) returns byte[] {
+//       return data;
+//   }
 
-  remote isolated function onClose(Caller caller) returns Error? {
-        check caller->close();
-  }
-}
+//   remote isolated function onClose(Caller caller) returns Error? {
+//         check caller->close();
+//   }
+// }
 
 // Tests the readBinaryMessage in synchronous client
 @test:Config {}

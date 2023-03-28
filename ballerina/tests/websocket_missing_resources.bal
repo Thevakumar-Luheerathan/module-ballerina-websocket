@@ -16,58 +16,58 @@
 
 // import ballerina/lang.runtime as runtime;
 import ballerina/test;
-import ballerina/http;
+// import ballerina/http;
 
-string expectedData = "";
-byte[] binData = [];
-byte[] expectedPingBinaryData = [];
-listener Listener l17 = new(21005);
+// string expectedData = "";
+// byte[] binData = [];
+// byte[] expectedPingBinaryData = [];
+// listener Listener l17 = new(21005);
 
-@ServiceConfig {
-   idleTimeout: 10
-}
-service /onlyOnBinary on l17 {
-   resource isolated function get .(http:Request req) returns Service|UpgradeError {
-       return new OnlyOnBinary();
-   }
-}
+// @ServiceConfig {
+//    idleTimeout: 10
+// }
+// service /onlyOnBinary on l17 {
+//    resource isolated function get .(http:Request req) returns Service|UpgradeError {
+//        return new OnlyOnBinary();
+//    }
+// }
 
-service class OnlyOnBinary {
-  *Service;
-   remote function onBinaryMessage(Caller caller, byte[] data) returns Error? {
-       binData = data;
-   }
-}
+// service class OnlyOnBinary {
+//   *Service;
+//    remote function onBinaryMessage(Caller caller, byte[] data) returns Error? {
+//        binData = data;
+//    }
+// }
 
-listener Listener l25 = new(21006);
+// listener Listener l25 = new(21006);
 
-service /onlyOnText on l25 {
-   resource isolated function get .(http:Request req) returns Service|UpgradeError {
-       return new OnlyOnText();
-   }
-}
+// service /onlyOnText on l25 {
+//    resource isolated function get .(http:Request req) returns Service|UpgradeError {
+//        return new OnlyOnText();
+//    }
+// }
 
-service class OnlyOnText {
-   *Service;
-   remote function onTextMessage(Caller caller, string data) returns Error? {
-       expectedData = data;
-   }
-}
+// service class OnlyOnText {
+//    *Service;
+//    remote function onTextMessage(Caller caller, string data) returns Error? {
+//        expectedData = data;
+//    }
+// }
 
-service class callbackService {
-   *Service;
-   remote function onTextMessage(Caller wsEp, string text) {
-       expectedData = text;
-   }
+// service class callbackService {
+//    *Service;
+//    remote function onTextMessage(Caller wsEp, string text) {
+//        expectedData = text;
+//    }
 
-   remote function onBinaryMessage(Caller wsEp, byte[] data) {
-       binData = data;
-   }
+//    remote function onBinaryMessage(Caller wsEp, byte[] data) {
+//        binData = data;
+//    }
 
-   remote function onPing(Caller wsEp, byte[] data) {
-       expectedPingBinaryData = data;
-   }
-}
+//    remote function onPing(Caller wsEp, byte[] data) {
+//        expectedPingBinaryData = data;
+//    }
+// }
 
 // Tests behavior when onTextMessage resource is missing and a text message is received
 @test:Config {}

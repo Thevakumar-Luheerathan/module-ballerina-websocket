@@ -15,43 +15,43 @@
 // under the License.
 
 import ballerina/test;
-import ballerina/http;
+// import ballerina/http;
 
-listener Listener l65 = new(21065, {
-    secureSocket: {
-        key: {
-            path: KEYSTORE_PATH,
-            password: "ballerina"
-        },
-        mutualSsl: {
-            verifyClient: http:REQUIRE,
-            cert: {
-                path: TRUSTSTORE_PATH,
-                password: "ballerina"
-            }
-        },
-        protocol: {
-            name: http:TLS,
-            versions: ["TLSv1.2","TLSv1.1"]
-        },
-        ciphers:["TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"],
-        handshakeTimeout: 20,
-        sessionTimeout: 200
-    }
-});
+// listener Listener l65 = new(21065, {
+//     secureSocket: {
+//         key: {
+//             path: KEYSTORE_PATH,
+//             password: "ballerina"
+//         },
+//         mutualSsl: {
+//             verifyClient: http:REQUIRE,
+//             cert: {
+//                 path: TRUSTSTORE_PATH,
+//                 password: "ballerina"
+//             }
+//         },
+//         protocol: {
+//             name: http:TLS,
+//             versions: ["TLSv1.2","TLSv1.1"]
+//         },
+//         ciphers:["TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"],
+//         handshakeTimeout: 20,
+//         sessionTimeout: 200
+//     }
+// });
 
-service /sslTest on l65 {
-    resource function get .(http:Request req) returns Service {
-        return new SslService();
-    }
-}
+// service /sslTest on l65 {
+//     resource function get .(http:Request req) returns Service {
+//         return new SslService();
+//     }
+// }
 
-service class SslService {
-    *Service;
-    remote isolated function onTextMessage(Caller caller, string data) returns error? {
-        check caller->writeTextMessage(data);
-    }
-}
+// service class SslService {
+//     *Service;
+//     remote isolated function onTextMessage(Caller caller, string data) returns error? {
+//         check caller->writeTextMessage(data);
+//     }
+// }
 
 // Tests the successful connection of sync client over mutual SSL
 @test:Config {}

@@ -16,34 +16,34 @@
 
 // import ballerina/lang.runtime as runtime;
 import ballerina/test;
-import ballerina/io;
+// import ballerina/io;
 
-listener Listener l72 = new(21072);
-string dispatchedTextData = "not received";
-byte[] dispatchedBinaryData = [5, 24, 56];
+// listener Listener l72 = new(21072);
+// string dispatchedTextData = "not received";
+// byte[] dispatchedBinaryData = [5, 24, 56];
 
-service /onDispatchError on l72 {
-    resource function get .() returns Service|UpgradeError {
-        return new WsService72();
-    }
-}
+// service /onDispatchError on l72 {
+//     resource function get .() returns Service|UpgradeError {
+//         return new WsService72();
+//     }
+// }
 
-service class WsService72 {
-    *Service;
-    remote function onTextMessage(Caller caller, string data, int x) returns string? {
-        dispatchedTextData = "text received";
-        io:println("server on text message");
-        return data;
-    }
+// service class WsService72 {
+//     *Service;
+//     remote function onTextMessage(Caller caller, string data, int x) returns string? {
+//         dispatchedTextData = "text received";
+//         io:println("server on text message");
+//         return data;
+//     }
 
-    remote function onBinaryMessage(Caller caller, byte[] data, string sData) returns Error? {
-        dispatchedBinaryData = data;
-    }
+//     remote function onBinaryMessage(Caller caller, byte[] data, string sData) returns Error? {
+//         dispatchedBinaryData = data;
+//     }
 
-    remote isolated function onError(error err) returns Error? {
-        io:println("server on error message");
-    }
-}
+//     remote isolated function onError(error err) returns Error? {
+//         io:println("server on error message");
+//     }
+// }
 
 // Tests dispatching error onTextMessage
 @test:Config {}

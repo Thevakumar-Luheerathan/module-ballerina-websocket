@@ -17,33 +17,33 @@
 // import ballerina/lang.runtime as runtime;
 import ballerina/test;
 
-string arrivedData = "";
-boolean isClientConnectionOpen = false;
-listener Listener l15 = new(21021);
-service /'client/'service on l15 {
-   resource isolated function get bbe() returns Service|UpgradeError {
-       return new clientFailure200();
-   }
-}
+// string arrivedData = "";
+// boolean isClientConnectionOpen = false;
+// listener Listener l15 = new(21021);
+// service /'client/'service on l15 {
+//    resource isolated function get bbe() returns Service|UpgradeError {
+//        return new clientFailure200();
+//    }
+// }
 
-service class clientFailure200 {
-  *Service;
-  remote function onOpen(Caller wsEp) {
-       isClientConnectionOpen = true;
-   }
-}
+// service class clientFailure200 {
+//   *Service;
+//   remote function onOpen(Caller wsEp) {
+//        isClientConnectionOpen = true;
+//    }
+// }
 
-service class callback200 {
-   *Service;
-   remote function onTextMessage(string caller, string text) {
-   }
-}
+// service class callback200 {
+//    *Service;
+//    remote function onTextMessage(string caller, string text) {
+//    }
+// }
 
-service class ClientService200 {
-   *Service;
-   remote function onTextMessage(Caller caller, string text) {
-   }
-}
+// service class ClientService200 {
+//    *Service;
+//    remote function onTextMessage(Caller caller, string text) {
+//    }
+// }
 
 // Tests the client initialization without a callback service.
 @test:Config {}

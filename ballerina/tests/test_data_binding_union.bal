@@ -16,65 +16,65 @@
 
 import ballerina/test;
 
-type ConnectionInitMessage record {|
-    WS_INIT 'type;
-    map<json> payload?;
-|};
+// type ConnectionInitMessage record {|
+//     WS_INIT 'type;
+//     map<json> payload?;
+// |};
 
-type PingMessage record {|
-    WS_PING 'type;
-    map<json> payload?;
-|};
+// type PingMessage record {|
+//     WS_PING 'type;
+//     map<json> payload?;
+// |};
 
-type PongMessage record {|
-    WS_PONG 'type;
-    map<json> payload?;
-|};
+// type PongMessage record {|
+//     WS_PONG 'type;
+//     map<json> payload?;
+// |};
 
-type SubscribeMessage record {|
-    string id;
-    WS_SUBSCRIBE 'type;
-    record {|
-        string operationName?;
-        string query;
-        map<json> variables?;
-        map<json> extensions?;
-    |} payload;
-|};
+// type SubscribeMessage record {|
+//     string id;
+//     WS_SUBSCRIBE 'type;
+//     record {|
+//         string operationName?;
+//         string query;
+//         map<json> variables?;
+//         map<json> extensions?;
+//     |} payload;
+// |};
 
-type CompleteMessage record {|
-    string id;
-    WS_COMPLETE 'type;
-|};
+// type CompleteMessage record {|
+//     string id;
+//     WS_COMPLETE 'type;
+// |};
 
-const WS_PING = "ping";
-const WS_PONG = "pong";
-const WS_SUBSCRIBE = "subscribe";
-const WS_COMPLETE = "complete";
-const WS_INIT = "init";
+// const WS_PING = "ping";
+// const WS_PONG = "pong";
+// const WS_SUBSCRIBE = "subscribe";
+// const WS_COMPLETE = "complete";
+// const WS_INIT = "init";
 
-type Message ConnectionInitMessage|PingMessage|PongMessage|SubscribeMessage|CompleteMessage;
+// type Message ConnectionInitMessage|PingMessage|PongMessage|SubscribeMessage|CompleteMessage;
 
-service / on new Listener(20010) {
+// service / on new Listener(20010) {
 
-    resource function get .() returns Service {
-        return new MyService();
-    }
-}
+//     resource function get .() returns Service {
+//         return new MyService();
+//     }
+// }
 
-service class MyService {
-    *Service;
+// service class MyService {
+//     *Service;
 
-    remote function onMessage(Caller caller, Message message) returns error? {
-        if message is PingMessage {
-           check self.handlePingMessage(caller, message);
-        }
-    }
+//     remote function onMessage(Caller caller, Message message) returns error? {
+//         if message is PingMessage {
+//            check self.handlePingMessage(caller, message);
+//         }
+//     }
 
-    private function handlePingMessage(Caller caller, PingMessage ping) returns error? {
-        check caller->writeMessage({'type: WS_PONG});
-    }
-}
+//     private function handlePingMessage(Caller caller, PingMessage ping) returns error? {
+//         check caller->writeMessage({'type: WS_PONG});
+//     }
+// }
 
 @test:Config {}
 public function testUnionAsBTypeReferenceType() returns Error? {

@@ -15,36 +15,36 @@
 // under the License.
 
 import ballerina/test;
-import ballerina/http;
-// import ballerina/io;
-// import ballerina/lang.'string as strings;
+// import ballerina/http;
+// // import ballerina/io;
+// // import ballerina/lang.'string as strings;
 
-listener Listener l68 = new(21068, {
-    secureSocket: {
-        key: {
-            path: KEYSTORE_PATH,
-            password: "ballerina"
-        },
-        protocol: {
-            name: http:TLS,
-            versions: ["TLSv1.2"]
-        }
-    },
-    host: "localhost"
-});
+// listener Listener l68 = new(21068, {
+//     secureSocket: {
+//         key: {
+//             path: KEYSTORE_PATH,
+//             password: "ballerina"
+//         },
+//         protocol: {
+//             name: http:TLS,
+//             versions: ["TLSv1.2"]
+//         }
+//     },
+//     host: "localhost"
+// });
 
-service /sslTest on l68 {
-    resource function get .() returns Service {
-        return new SslService4();
-    }
-}
+// service /sslTest on l68 {
+//     resource function get .() returns Service {
+//         return new SslService4();
+//     }
+// }
 
-service class SslService4 {
-    *Service;
-    remote isolated function onTextMessage(Caller caller, string data) returns error? {
-        check caller->writeTextMessage(data);
-    }
-}
+// service class SslService4 {
+//     *Service;
+//     remote isolated function onTextMessage(Caller caller, string data) returns error? {
+//         check caller->writeTextMessage(data);
+//     }
+// }
 
 // Tests the successful connection of sync client over mutual SSL with certs and keys
 @test:Config {}

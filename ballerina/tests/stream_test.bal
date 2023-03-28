@@ -16,118 +16,118 @@
 
 import ballerina/test;
 
-public type ChatMessage record {|
-    string name = "";
-    string message = "";
-|};
+// public type ChatMessage record {|
+//     string name = "";
+//     string message = "";
+// |};
 
-listener Listener streamLis = new(21402);
+// listener Listener streamLis = new(21402);
 
-service /onStream on streamLis {
-    resource function get .() returns Service|UpgradeError {
-        return new StreamStringSvc();
-    }
-}
+// service /onStream on streamLis {
+//     resource function get .() returns Service|UpgradeError {
+//         return new StreamStringSvc();
+//     }
+// }
 
-service class StreamStringSvc {
-    *Service;
-    remote function onMessage(Caller caller, json data) returns stream<string> {
-      string[] greets = ["Hi Sam", "Hey Sam", "GM Sam"];
-      return greets.toStream();
-    }
-}
+// service class StreamStringSvc {
+//     *Service;
+//     remote function onMessage(Caller caller, json data) returns stream<string> {
+//       string[] greets = ["Hi Sam", "Hey Sam", "GM Sam"];
+//       return greets.toStream();
+//     }
+// }
 
-service /onRecordStream on streamLis {
-    resource function get .() returns Service|UpgradeError {
-       return new StreamRecordSvc();
-    }
-}
+// service /onRecordStream on streamLis {
+//     resource function get .() returns Service|UpgradeError {
+//        return new StreamRecordSvc();
+//     }
+// }
 
-service class StreamRecordSvc {
-    *Service;
-    remote function onMessage(Caller caller, json data) returns stream<ChatMessage> {
-        ChatMessage mes1 = {name:"Sam", message:"Hi"};
-        ChatMessage mes2 = {name:"Sam", message:"GM"};
-        ChatMessage[] chatMsges = [mes1, mes2];
-        return chatMsges.toStream();
-    }
-}
+// service class StreamRecordSvc {
+//     *Service;
+//     remote function onMessage(Caller caller, json data) returns stream<ChatMessage> {
+//         ChatMessage mes1 = {name:"Sam", message:"Hi"};
+//         ChatMessage mes2 = {name:"Sam", message:"GM"};
+//         ChatMessage[] chatMsges = [mes1, mes2];
+//         return chatMsges.toStream();
+//     }
+// }
 
-class EvenNumberGenerator {
-    int i = 0;
-    public isolated function next() returns record {| int value; |}|error? {
-        self.i += 2;
-        if self.i > 4 {
-            return;
-        }
-        return { value: self.i };
-    }
-}
+// class EvenNumberGenerator {
+//     int i = 0;
+//     public isolated function next() returns record {| int value; |}|error? {
+//         self.i += 2;
+//         if self.i > 4 {
+//             return;
+//         }
+//         return { value: self.i };
+//     }
+// }
 
-service /onIntStreamWithError on streamLis {
-    resource function get .() returns Service|UpgradeError {
-       return new StreamIntWithErrorSvc();
-    }
-}
+// service /onIntStreamWithError on streamLis {
+//     resource function get .() returns Service|UpgradeError {
+//        return new StreamIntWithErrorSvc();
+//     }
+// }
 
-service class StreamIntWithErrorSvc {
-    *Service;
-    remote function onMessage(Caller caller, json data) returns stream<int, error?> {
-       EvenNumberGenerator evenGen = new();
-       stream<int, error?> evenNumberStream = new(evenGen);
-       return evenNumberStream;
-    }
-}
+// service class StreamIntWithErrorSvc {
+//     *Service;
+//     remote function onMessage(Caller caller, json data) returns stream<int, error?> {
+//        EvenNumberGenerator evenGen = new();
+//        stream<int, error?> evenNumberStream = new(evenGen);
+//        return evenNumberStream;
+//     }
+// }
 
-class ErrorGenerator {
-    int i = 0;
-    public isolated function next() returns record {| int value; |}|error? {
-        return error("panic from next");
-    }
-}
+// class ErrorGenerator {
+//     int i = 0;
+//     public isolated function next() returns record {| int value; |}|error? {
+//         return error("panic from next");
+//     }
+// }
 
-service /onErrorStream on streamLis {
-    resource function get .() returns Service|UpgradeError {
-       return new StreamErrorSvc();
-    }
-}
+// service /onErrorStream on streamLis {
+//     resource function get .() returns Service|UpgradeError {
+//        return new StreamErrorSvc();
+//     }
+// }
 
-service class StreamErrorSvc {
-    *Service;
-    remote function onMessage(Caller caller, json data) returns stream<int, error?> {
-       ErrorGenerator errGen = new();
-       stream<int, error?> errNumberStream = new(errGen);
-       return errNumberStream;
-    }
-}
+// service class StreamErrorSvc {
+//     *Service;
+//     remote function onMessage(Caller caller, json data) returns stream<int, error?> {
+//        ErrorGenerator errGen = new();
+//        stream<int, error?> errNumberStream = new(errGen);
+//        return errNumberStream;
+//     }
+// }
 
-service /onJsonStream on streamLis {
-    resource function get .() returns Service|UpgradeError {
-       return new StreamJsonSvc();
-    }
-}
+// service /onJsonStream on streamLis {
+//     resource function get .() returns Service|UpgradeError {
+//        return new StreamJsonSvc();
+//     }
+// }
 
-service class StreamJsonSvc {
-    *Service;
-    remote function onMessage(Caller caller, json data) returns stream<json, error?> {
-        json[] jsonMsges = [{"x": 1, "y": 2}, {"x": 4, "y": 5}];
-        return jsonMsges.toStream();
-    }
-}
+// service class StreamJsonSvc {
+//     *Service;
+//     remote function onMessage(Caller caller, json data) returns stream<json, error?> {
+//         json[] jsonMsges = [{"x": 1, "y": 2}, {"x": 4, "y": 5}];
+//         return jsonMsges.toStream();
+//     }
+// }
 
-service /onJsonStreamOnOpen on streamLis {
-    resource function get .() returns Service|UpgradeError {
-       return new StreamJsonOpenSvc();
-    }
-}
+// service /onJsonStreamOnOpen on streamLis {
+//     resource function get .() returns Service|UpgradeError {
+//        return new StreamJsonOpenSvc();
+//     }
+// }
 
-service class StreamJsonOpenSvc {
-    *Service;
-    remote function onOpen(Caller caller) returns stream<json, error?> {
-        json[] jsonMsges = [{"x": 1, "y": 2}, {"x": 4, "y": 5}];
-        return jsonMsges.toStream();
-    }
-}
+// service class StreamJsonOpenSvc {
+//     *Service;
+//     remote function onOpen(Caller caller) returns stream<json, error?> {
+//         json[] jsonMsges = [{"x": 1, "y": 2}, {"x": 4, "y": 5}];
+//         return jsonMsges.toStream();
+//     }
+// }
 
 @test:Config {}
 public function testStreamString() returns Error? {

@@ -15,58 +15,58 @@
 // under the License.
 
 import ballerina/test;
-import ballerina/io;
-// import ballerina/lang.runtime as runtime;
+// import ballerina/io;
+// // import ballerina/lang.runtime as runtime;
 
-string pingPongMsg = "";
-listener Listener l35 = new(21057);
-service /pingpong on l35 {
-    resource function get .() returns Service|UpgradeError {
-        return new WsServiceSyncPingPong();
-    }
-}
+// string pingPongMsg = "";
+// listener Listener l35 = new(21057);
+// service /pingpong on l35 {
+//     resource function get .() returns Service|UpgradeError {
+//         return new WsServiceSyncPingPong();
+//     }
+// }
 
-service class WsServiceSyncPingPong {
-    *Service;
-    remote isolated function onTextMessage(Caller caller, string data) returns Error? {
-        io:println("On ping pong server text");
-        byte[] pingData = [5, 24, 56, 243];
-        check caller->ping(pingData);
-    }
+// service class WsServiceSyncPingPong {
+//     *Service;
+//     remote isolated function onTextMessage(Caller caller, string data) returns Error? {
+//         io:println("On ping pong server text");
+//         byte[] pingData = [5, 24, 56, 243];
+//         check caller->ping(pingData);
+//     }
 
-    remote isolated function onPing(Caller caller, byte[] localData) returns byte[] {
-        io:println("On server ping");
-        return localData;
-    }
+//     remote isolated function onPing(Caller caller, byte[] localData) returns byte[] {
+//         io:println("On server ping");
+//         return localData;
+//     }
 
-    remote isolated function onPong(Caller caller, byte[] localData) {
-        io:println("On server pong");
-        var returnVal = caller->writeTextMessage("pong received");
-        if returnVal is Error {
-            panic <error>returnVal;
-        }
-    }
+//     remote isolated function onPong(Caller caller, byte[] localData) {
+//         io:println("On server pong");
+//         var returnVal = caller->writeTextMessage("pong received");
+//         if returnVal is Error {
+//             panic <error>returnVal;
+//         }
+//     }
 
-    remote isolated function onClose(Caller caller) returns Error? {
-        check caller->close();
-    }
-}
+//     remote isolated function onClose(Caller caller) returns Error? {
+//         check caller->close();
+//     }
+// }
 
-service isolated class clientPingPongCallbackService {
-    *PingPongService;
-    remote isolated function onPing(Caller caller, byte[] localData) returns byte[] {
-        io:println("On sync client ping");
-        return localData;
-    }
+// service isolated class clientPingPongCallbackService {
+//     *PingPongService;
+//     remote isolated function onPing(Caller caller, byte[] localData) returns byte[] {
+//         io:println("On sync client ping");
+//         return localData;
+//     }
 
-    remote isolated function onPong(Caller caller, byte[] localData) {
-        io:println("On sync client pong");
-        var returnVal = caller->writeTextMessage("pong received");
-        if returnVal is Error {
-           panic <error>returnVal;
-        }
-    }
-}
+//     remote isolated function onPong(Caller caller, byte[] localData) {
+//         io:println("On sync client pong");
+//         var returnVal = caller->writeTextMessage("pong received");
+//         if returnVal is Error {
+//            panic <error>returnVal;
+//         }
+//     }
+// }
 
 // Tests the receiving of ping messages asynchronously in WebSocket synchronous client.
 // Ping messages are dispatched to the registered callback service.

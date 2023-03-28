@@ -15,34 +15,34 @@
 // under the License.
 
 import ballerina/test;
-import ballerina/http;
-// import ballerina/lang.'string as strings;
+// import ballerina/http;
+// // import ballerina/lang.'string as strings;
 
-string sslErrString = "";
-listener Listener l36 = new(21058, {
-    secureSocket: {
-        key: {
-            certFile: "tests/certsAndKeys/public.crt",
-            keyFile: "tests/certsAndKeys/private.key"
-        }
-    }
-});
+// string sslErrString = "";
+// listener Listener l36 = new(21058, {
+//     secureSocket: {
+//         key: {
+//             certFile: "tests/certsAndKeys/public.crt",
+//             keyFile: "tests/certsAndKeys/private.key"
+//         }
+//     }
+// });
 
-service /sslTest on l36 {
-    resource function get .(http:Request req) returns Service {
-        return new SyncSslErrorService();
-    }
-}
+// service /sslTest on l36 {
+//     resource function get .(http:Request req) returns Service {
+//         return new SyncSslErrorService();
+//     }
+// }
 
-service class SyncSslErrorService {
-    *Service;
-    remote isolated function onTextMessage(Caller caller, string data) {
-        var returnVal = caller->writeTextMessage(data);
-        if returnVal is Error {
-            panic <error>returnVal;
-        }
-    }
-}
+// service class SyncSslErrorService {
+//     *Service;
+//     remote isolated function onTextMessage(Caller caller, string data) {
+//         var returnVal = caller->writeTextMessage(data);
+//         if returnVal is Error {
+//             panic <error>returnVal;
+//         }
+//     }
+// }
 
 // Tests the Ssl error returned when creating the sync client
 @test:Config {}

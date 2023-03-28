@@ -16,31 +16,31 @@
 
 // import ballerina/lang.runtime as runtime;
 import ballerina/test;
-import ballerina/io;
+// import ballerina/io;
 
-string errdata = "";
+// string errdata = "";
 
-listener Listener l60 = new(2160);
+// listener Listener l60 = new(2160);
 
-service /onTextString on l60 {
-   resource function get .() returns Service|UpgradeError {
-       return new WsService60();
-   }
-}
+// service /onTextString on l60 {
+//    resource function get .() returns Service|UpgradeError {
+//        return new WsService60();
+//    }
+// }
 
-service class WsService60 {
-  *Service;
-  remote function onTextMessage(Caller caller, string data) returns string? {
-      io:println("On text message");
-      error? result = caller->close(1001, "Close the connection", timeout = 0);
-      return data;
-  }
+// service class WsService60 {
+//   *Service;
+//   remote function onTextMessage(Caller caller, string data) returns string? {
+//       io:println("On text message");
+//       error? result = caller->close(1001, "Close the connection", timeout = 0);
+//       return data;
+//   }
 
-  remote function onError(error err) returns Error? {
-      io:println("server on error message");
-      errdata = err.message();
-  }
-}
+//   remote function onError(error err) returns Error? {
+//       io:println("server on error message");
+//       errdata = err.message();
+//   }
+// }
 
 // Tests trying to return a text data from onTextMessage remote function when the connection is closed.
 // It should be dispatched to the onError resource

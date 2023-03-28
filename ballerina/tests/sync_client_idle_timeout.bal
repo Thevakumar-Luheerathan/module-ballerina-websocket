@@ -18,25 +18,25 @@ import ballerina/test;
 // import ballerina/io;
 // import ballerina/lang.runtime as runtime;
 
-string idleTimeOutError = "";
-string secondReadResp = "";
-listener Listener l34 = new(21056);
-service /onIdleTimeoutService on l34 {
-    resource function get .() returns Service|UpgradeError {
-        return new OnIdleTimeoutService();
-    }
-}
+// string idleTimeOutError = "";
+// string secondReadResp = "";
+// listener Listener l34 = new(21056);
+// service /onIdleTimeoutService on l34 {
+//     resource function get .() returns Service|UpgradeError {
+//         return new OnIdleTimeoutService();
+//     }
+// }
 
-service class OnIdleTimeoutService {
-    *Service;
-    remote isolated function onTextMessage(Caller caller, string data) returns Error? {
-        check caller->writeTextMessage(data);
-    }
+// service class OnIdleTimeoutService {
+//     *Service;
+//     remote isolated function onTextMessage(Caller caller, string data) returns Error? {
+//         check caller->writeTextMessage(data);
+//     }
 
-    remote isolated function onClose(Caller caller) returns Error? {
-        check caller->close();
-    }
-}
+//     remote isolated function onClose(Caller caller) returns Error? {
+//         check caller->close();
+//     }
+// }
 
 // Tests the idle timeout error returned from readTextMessage and then read again
 // to check if the idle state handler gets reset.

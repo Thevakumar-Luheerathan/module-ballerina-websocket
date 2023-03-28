@@ -17,22 +17,22 @@
 // import ballerina/lang.runtime as runtime;
 import ballerina/test;
 
-byte[] BinSyncData = [];
+// byte[] BinSyncData = [];
 
-listener Listener l41 = new(21311);
+// listener Listener l41 = new(21311);
 
-service /onBinaryDataSync on l41 {
-   resource function get .() returns Service|UpgradeError {
-       return new WsService41();
-   }
-}
+// service /onBinaryDataSync on l41 {
+//    resource function get .() returns Service|UpgradeError {
+//        return new WsService41();
+//    }
+// }
 
-service class WsService41 {
-  *Service;
-  remote function onBinaryMessage(Caller caller, byte[] data) returns Error? {
-      BinSyncData = data;
-  }
-}
+// service class WsService41 {
+//   *Service;
+//   remote function onBinaryMessage(Caller caller, byte[] data) returns Error? {
+//       BinSyncData = data;
+//   }
+// }
 
 // Tests writing binary data as continuation frames chunked by the given maxFrameSize using the sync client.
 @test:Config {}

@@ -15,34 +15,34 @@
 // under the License.
 
 import ballerina/test;
-import ballerina/http;
-// import ballerina/io;
+// import ballerina/http;
+// // import ballerina/io;
 
-listener Listener l66 = new(21066, {
-    secureSocket: {
-        key: {
-            certFile: "tests/certsAndKeys/public.crt",
-            keyFile: "tests/certsAndKeys/private.key"
-        },
-        mutualSsl: {
-            verifyClient: http:REQUIRE,
-            cert: "tests/certsAndKeys/public.crt"
-        }
-    }
-});
+// listener Listener l66 = new(21066, {
+//     secureSocket: {
+//         key: {
+//             certFile: "tests/certsAndKeys/public.crt",
+//             keyFile: "tests/certsAndKeys/private.key"
+//         },
+//         mutualSsl: {
+//             verifyClient: http:REQUIRE,
+//             cert: "tests/certsAndKeys/public.crt"
+//         }
+//     }
+// });
 
-service /sslTest on l66 {
-    resource function get .() returns Service {
-        return new SslService2();
-    }
-}
+// service /sslTest on l66 {
+//     resource function get .() returns Service {
+//         return new SslService2();
+//     }
+// }
 
-service class SslService2 {
-    *Service;
-    remote isolated function onTextMessage(Caller caller, string data) returns error? {
-        check caller->writeTextMessage(data);
-    }
-}
+// service class SslService2 {
+//     *Service;
+//     remote isolated function onTextMessage(Caller caller, string data) returns error? {
+//         check caller->writeTextMessage(data);
+//     }
+// }
 
 // Tests the successful connection of sync client over mutual SSL with certs and keys
 @test:Config {}

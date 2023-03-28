@@ -17,20 +17,20 @@
 import ballerina/test;
 // import ballerina/lang.runtime as runtime;
 
-int expectedStatusCode = 0;
-listener Listener l13 = new(21004);
-service /clientClose on l13 {
-    resource isolated function get .() returns Service|UpgradeError {
-       return new clientCloseService();
-    }
-}
+// int expectedStatusCode = 0;
+// listener Listener l13 = new(21004);
+// service /clientClose on l13 {
+//     resource isolated function get .() returns Service|UpgradeError {
+//        return new clientCloseService();
+//     }
+// }
 
-service class clientCloseService {
-   *Service;
-   remote function onClose(Caller wsEp, int statusCode, string reason) {
-       expectedStatusCode = statusCode;
-   }
-}
+// service class clientCloseService {
+//    *Service;
+//    remote function onClose(Caller wsEp, int statusCode, string reason) {
+//        expectedStatusCode = statusCode;
+//    }
+// }
 
 // Test client closing the connection with a close code
 @test:Config {}

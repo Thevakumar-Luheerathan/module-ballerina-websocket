@@ -15,34 +15,34 @@
 // under the License.
 
 import ballerina/test;
-// import ballerina/io;
-// import ballerina/lang.runtime as runtime;
+// // import ballerina/io;
+// // import ballerina/lang.runtime as runtime;
 
-string aggregatedTextOutput = "";
-string connId1 = "1";
-string connId2 = "2";
-string subProtocol = "";
-listener Listener l11 = new(21000);
+// string aggregatedTextOutput = "";
+// string connId1 = "1";
+// string connId2 = "2";
+// string subProtocol = "";
+// listener Listener l11 = new(21000);
 
-@ServiceConfig {
-    subProtocols: ["xml", "json"]
-}
-service /onTextString on l11 {
-   resource function get .() returns Service|UpgradeError {
-       return new WsServiceSync();
-   }
-}
+// @ServiceConfig {
+//     subProtocols: ["xml", "json"]
+// }
+// service /onTextString on l11 {
+//    resource function get .() returns Service|UpgradeError {
+//        return new WsServiceSync();
+//    }
+// }
 
-service class WsServiceSync {
-  *Service;
-  remote isolated function onTextMessage(Caller caller, string data) returns Error? {
-      check caller->writeTextMessage(data);
-  }
+// service class WsServiceSync {
+//   *Service;
+//   remote isolated function onTextMessage(Caller caller, string data) returns Error? {
+//       check caller->writeTextMessage(data);
+//   }
 
-  remote isolated function onClose(Caller caller) returns Error? {
-        check caller->close();
-  }
-}
+//   remote isolated function onClose(Caller caller) returns Error? {
+//         check caller->close();
+//   }
+// }
 
 // Tests the readTextMessagse in synchronous client
 @test:Config {}

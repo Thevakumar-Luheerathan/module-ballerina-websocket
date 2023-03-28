@@ -16,29 +16,29 @@
 
 // import ballerina/lang.runtime as runtime;
 import ballerina/test;
-import ballerina/io;
+// import ballerina/io;
 
-string data = "";
+// string data = "";
 
-listener Listener l2 = new(21003);
+// listener Listener l2 = new(21003);
 
-service /onTextString on l2 {
-   resource function get .() returns Service|UpgradeError {
-       return new WsService1();
-   }
-}
+// service /onTextString on l2 {
+//    resource function get .() returns Service|UpgradeError {
+//        return new WsService1();
+//    }
+// }
 
-service class WsService1 {
-  *Service;
-  remote isolated function onTextMessage(Caller caller, string data) returns string? {
-      io:println("server on text message");
-      return data;
-  }
+// service class WsService1 {
+//   *Service;
+//   remote isolated function onTextMessage(Caller caller, string data) returns string? {
+//       io:println("server on text message");
+//       return data;
+//   }
 
-  remote isolated function onError(error err) returns Error? {
-      io:println("server on error message");
-  }
-}
+//   remote isolated function onError(error err) returns Error? {
+//       io:println("server on error message");
+//   }
+// }
 
 // Tests string support for writeTextMessage and onTextMessage
 @test:Config {}

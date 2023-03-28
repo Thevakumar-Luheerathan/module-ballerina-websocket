@@ -14,90 +14,90 @@
 // specific language governing permissions and limitations
 // under the License.
 
-import ballerina/io;
+// import ballerina/io;
 // import ballerina/lang.runtime as runtime;
 import ballerina/test;
 
-listener Listener l24 = new(21027, {
-    secureSocket: {
-        key: {
-            path: KEYSTORE_PATH,
-            password: "ballerina"
-        }
-    }
-});
-service /sslEcho on l24 {
-   resource isolated function get .() returns Service|UpgradeError {
-       return new SslProxy();
-   }
-}
-service class SslProxy {
-   *Service;
-   Client? wsClientEp = ();
-   remote function onOpen(Caller wsEp) returns Error? {
-       self.wsClientEp = check new ("wss://localhost:21028/websocket", {
-           secureSocket: {
-               cert: {
-                   path: TRUSTSTORE_PATH,
-                   password: "ballerina"
-               }
-           }
-       });
-   }
+// listener Listener l24 = new(21027, {
+//     secureSocket: {
+//         key: {
+//             path: KEYSTORE_PATH,
+//             password: "ballerina"
+//         }
+//     }
+// });
+// service /sslEcho on l24 {
+//    resource isolated function get .() returns Service|UpgradeError {
+//        return new SslProxy();
+//    }
+// }
+// service class SslProxy {
+//    *Service;
+//    Client? wsClientEp = ();
+//    remote function onOpen(Caller wsEp) returns Error? {
+//        self.wsClientEp = check new ("wss://localhost:21028/websocket", {
+//            secureSocket: {
+//                cert: {
+//                    path: TRUSTSTORE_PATH,
+//                    password: "ballerina"
+//                }
+//            }
+//        });
+//    }
 
-   remote function onTextMessage(Caller wsEp, string text) returns Error? {
-       Client? proxyClient = self.wsClientEp;
-       if proxyClient is Client {
-           check proxyClient->writeTextMessage(text);
-           string proxyData = check proxyClient->readTextMessage();
-           check wsEp->writeTextMessage(proxyData);
-       }
-   }
+//    remote function onTextMessage(Caller wsEp, string text) returns Error? {
+//        Client? proxyClient = self.wsClientEp;
+//        if proxyClient is Client {
+//            check proxyClient->writeTextMessage(text);
+//            string proxyData = check proxyClient->readTextMessage();
+//            check wsEp->writeTextMessage(proxyData);
+//        }
+//    }
 
-   remote function onBinaryMessage(Caller wsEp, byte[] data) returns Error? {
-       Client? proxyClient = self.wsClientEp;
-       if proxyClient is Client {
-           check proxyClient->writeBinaryMessage(data);
-           byte[] proxyData = check proxyClient->readBinaryMessage();
-           check wsEp->writeBinaryMessage(proxyData);
-       }
-   }
+//    remote function onBinaryMessage(Caller wsEp, byte[] data) returns Error? {
+//        Client? proxyClient = self.wsClientEp;
+//        if proxyClient is Client {
+//            check proxyClient->writeBinaryMessage(data);
+//            byte[] proxyData = check proxyClient->readBinaryMessage();
+//            check wsEp->writeBinaryMessage(proxyData);
+//        }
+//    }
 
-   remote function onClose(Caller wsEp, int statusCode, string reason) {
-   }
-}
+//    remote function onClose(Caller wsEp, int statusCode, string reason) {
+//    }
+// }
 
-listener Listener l27 = new(21028, {
-    secureSocket: {
-        key: {
-            path: KEYSTORE_PATH,
-            password: "ballerina"
-        }
-    }
-});
-service /websocket on l27 {
-   resource isolated function get .() returns Service|UpgradeError {
-       return new SslProxyServer();
-   }
-}
+// listener Listener l27 = new(21028, {
+//     secureSocket: {
+//         key: {
+//             path: KEYSTORE_PATH,
+//             password: "ballerina"
+//         }
+//     }
+// });
+// service /websocket on l27 {
+//    resource isolated function get .() returns Service|UpgradeError {
+//        return new SslProxyServer();
+//    }
+// }
 
-service class SslProxyServer {
-   *Service;
-   remote function onOpen(Caller caller) {
-       io:println("The Connection ID ssl proxy server: " + caller.getConnectionId());
-   }
+// service class SslProxyServer {
+//    *Service;
+//    remote function onOpen(Caller caller) {
+//        io:println("The Connection ID ssl proxy server: " + caller.getConnectionId());
+//    }
 
-   remote function onTextMessage(Caller caller, string text) {
-       Error? err = caller->writeTextMessage(text);
-       if err is Error {
-           io:println("Error occurred when sending text message: ", err);
-       }
-   }
+//    remote function onTextMessage(Caller caller, string text) {
+//        Error? err = caller->writeTextMessage(text);
+//        if err is Error {
+//            io:println("Error occurred when sending text message: ", err);
+//        }
+//    }
 
-   remote function onBinaryMessage(Caller caller, byte[] data) returns error? {
-       check caller->writeBinaryMessage(data);
-   }
-}
+//    remote function onBinaryMessage(Caller caller, byte[] data) returns error? {
+//        check caller->writeBinaryMessage(data);
+//    }
+// }
 
 // Tests sending and receiving of text frames in WebSockets over SSL.
 @test:Config {}

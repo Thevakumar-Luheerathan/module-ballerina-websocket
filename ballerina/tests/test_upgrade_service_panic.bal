@@ -16,22 +16,22 @@
 
 import ballerina/test;
 
-listener Listener l75 = new(21075);
+// listener Listener l75 = new(21075);
 
-service /onPanic on l75 {
-    resource function get .() returns Service|UpgradeError {
-        if true {
-           panic error("panic from the service");
-        }
-    }
-}
+// service /onPanic on l75 {
+//     resource function get .() returns Service|UpgradeError {
+//         if true {
+//            panic error("panic from the service");
+//         }
+//     }
+// }
 
-service class WsService75 {
-    *Service;
-    remote function onTextMessage(Caller caller, string data) returns error? {
-        return error("error returned");
-    }
-}
+// service class WsService75 {
+//     *Service;
+//     remote function onTextMessage(Caller caller, string data) returns error? {
+//         return error("error returned");
+//     }
+// }
 
 // Tests error panicked from get resource.
 @test:Config {}

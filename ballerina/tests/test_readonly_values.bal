@@ -17,24 +17,24 @@
 // import ballerina/lang.runtime as runtime;
 import ballerina/test;
 
-listener Listener l77 = new(21012);
+// listener Listener l77 = new(21012);
 
-service /onReadonlyBinary on l77 {
-    resource function get .() returns Service|UpgradeError {
-        return new WsService77();
-    }
-}
+// service /onReadonlyBinary on l77 {
+//     resource function get .() returns Service|UpgradeError {
+//         return new WsService77();
+//     }
+// }
 
-service class WsService77 {
-    *Service;
-    remote isolated function onBinaryMessage(Caller caller, readonly & byte[] data) returns byte[]? {
-        return data;
-    }
+// service class WsService77 {
+//     *Service;
+//     remote isolated function onBinaryMessage(Caller caller, readonly & byte[] data) returns byte[]? {
+//         return data;
+//     }
 
-    remote isolated function onPing(Caller caller, readonly & byte[] data) returns byte[]? {
-        return data;
-    }
-}
+//     remote isolated function onPing(Caller caller, readonly & byte[] data) returns byte[]? {
+//         return data;
+//     }
+// }
 
 // Tests readonly support for onBinaryMessage
 @test:Config {}

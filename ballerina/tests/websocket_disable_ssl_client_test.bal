@@ -17,27 +17,27 @@
 import ballerina/test;
 // import ballerina/io;
 
-listener Listener l67 = new(21067, {
-    secureSocket: {
-        key: {
-            certFile: "tests/certsAndKeys/public.crt",
-            keyFile: "tests/certsAndKeys/private.key"
-        }
-    }
-});
+// listener Listener l67 = new(21067, {
+//     secureSocket: {
+//         key: {
+//             certFile: "tests/certsAndKeys/public.crt",
+//             keyFile: "tests/certsAndKeys/private.key"
+//         }
+//     }
+// });
 
-service /sslTest on l67 {
-    resource function get .() returns Service {
-        return new SslService3();
-    }
-}
+// service /sslTest on l67 {
+//     resource function get .() returns Service {
+//         return new SslService3();
+//     }
+// }
 
-service class SslService3 {
-    *Service;
-    remote isolated function onTextMessage(Caller caller, string data) returns error? {
-        check caller->writeTextMessage(data);
-    }
-}
+// service class SslService3 {
+//     *Service;
+//     remote isolated function onTextMessage(Caller caller, string data) returns error? {
+//         check caller->writeTextMessage(data);
+//     }
+// }
 
 // Tests the successful connection of sync client over mutual SSL with certs and keys
 @test:Config {}

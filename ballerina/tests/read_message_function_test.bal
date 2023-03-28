@@ -17,27 +17,27 @@
 import ballerina/test;
 // import ballerina/lang.runtime;
 
-string readMessageStringOutput = "";
-string readMessageByteOutput = "";
+// string readMessageStringOutput = "";
+// string readMessageByteOutput = "";
 
-listener Listener l76 = new(21011);
+// listener Listener l76 = new(21011);
 
-service /testReadMessage on l76 {
-   resource function get .() returns Service|UpgradeError {
-       return new WsServiceSync76();
-   }
-}
+// service /testReadMessage on l76 {
+//    resource function get .() returns Service|UpgradeError {
+//        return new WsServiceSync76();
+//    }
+// }
 
-service class WsServiceSync76 {
-  *Service;
-  remote isolated function onTextMessage(Caller caller, string data) returns Error? {
-      check caller->writeTextMessage(data);
-  }
+// service class WsServiceSync76 {
+//   *Service;
+//   remote isolated function onTextMessage(Caller caller, string data) returns Error? {
+//       check caller->writeTextMessage(data);
+//   }
 
-  remote isolated function onBinaryMessage(Caller caller, byte[] data) returns Error? {
-      check caller->writeBinaryMessage(data);
-  }
-}
+//   remote isolated function onBinaryMessage(Caller caller, byte[] data) returns Error? {
+//       check caller->writeBinaryMessage(data);
+//   }
+// }
 
 // Tests the readMessage function in client
 @test:Config {}

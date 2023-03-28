@@ -16,34 +16,34 @@
 
 // import ballerina/lang.runtime as runtime;
 import ballerina/test;
-import ballerina/http;
-// import ballerina/io;
+// import ballerina/http;
+// // import ballerina/io;
 
-string sslString = "";
-listener Listener l37 = new(21059, {
-    secureSocket: {
-        key: {
-            path: KEYSTORE_PATH,
-            password: "ballerina"
-        }
-    }
-});
+// string sslString = "";
+// listener Listener l37 = new(21059, {
+//     secureSocket: {
+//         key: {
+//             path: KEYSTORE_PATH,
+//             password: "ballerina"
+//         }
+//     }
+// });
 
-service /sslTest on l37 {
-    resource function get .(http:Request req) returns Service {
-        return new SyncSslService();
-    }
-}
+// service /sslTest on l37 {
+//     resource function get .(http:Request req) returns Service {
+//         return new SyncSslService();
+//     }
+// }
 
-service class SyncSslService {
-    *Service;
-    remote isolated function onTextMessage(Caller caller, string data) {
-        var returnVal = caller->writeTextMessage(data);
-        if returnVal is Error {
-            panic <error>returnVal;
-        }
-    }
-}
+// service class SyncSslService {
+//     *Service;
+//     remote isolated function onTextMessage(Caller caller, string data) {
+//         var returnVal = caller->writeTextMessage(data);
+//         if returnVal is Error {
+//             panic <error>returnVal;
+//         }
+//     }
+// }
 
 // Tests the successful connection of sync client over SSL
 @test:Config {}

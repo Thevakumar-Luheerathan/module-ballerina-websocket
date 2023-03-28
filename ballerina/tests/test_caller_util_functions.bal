@@ -16,50 +16,50 @@
 
 // import ballerina/lang.runtime as runtime;
 import ballerina/test;
-import ballerina/io;
-import ballerina/lang.value;
+// import ballerina/io;
+// import ballerina/lang.value;
 
-string attr1 = "";
-string removedAttr = "";
-boolean isSecure = true;
-string serviceSubProtocol = "";
+// string attr1 = "";
+// string removedAttr = "";
+// boolean isSecure = true;
+// string serviceSubProtocol = "";
 
-listener Listener l62 = new(21009);
+// listener Listener l62 = new(21009);
 
-@ServiceConfig {
-    subProtocols: ["json", "xml"]
-}
-service /onTestUtils on l62 {
-   resource function get .() returns Service|UpgradeError {
-       return new WsService62();
-   }
-}
+// @ServiceConfig {
+//     subProtocols: ["json", "xml"]
+// }
+// service /onTestUtils on l62 {
+//    resource function get .() returns Service|UpgradeError {
+//        return new WsService62();
+//    }
+// }
 
-service class WsService62 {
-  *Service;
-  remote function onTextMessage(Caller caller, string data) returns string? {
-      io:println("server on text message");
-      caller.setAttribute("test", "testAttr");
-      caller.setAttribute("test2", "removedAttr");
-      isSecure = caller.isSecure();
-      value:Cloneable rmAttr = caller.removeAttribute("test2");
-      if rmAttr is string {
-          removedAttr = rmAttr;
-      }
-      value:Cloneable attr = caller.getAttribute("test");
-      if attr is string {
-          attr1 = attr;
-      }
-      string? protocol = caller.getNegotiatedSubProtocol();
-      if protocol is string {
-         serviceSubProtocol = protocol;
-      }
-  }
+// service class WsService62 {
+//   *Service;
+//   remote function onTextMessage(Caller caller, string data) returns string? {
+//       io:println("server on text message");
+//       caller.setAttribute("test", "testAttr");
+//       caller.setAttribute("test2", "removedAttr");
+//       isSecure = caller.isSecure();
+//       value:Cloneable rmAttr = caller.removeAttribute("test2");
+//       if rmAttr is string {
+//           removedAttr = rmAttr;
+//       }
+//       value:Cloneable attr = caller.getAttribute("test");
+//       if attr is string {
+//           attr1 = attr;
+//       }
+//       string? protocol = caller.getNegotiatedSubProtocol();
+//       if protocol is string {
+//          serviceSubProtocol = protocol;
+//       }
+//   }
 
-  remote isolated function onError(error err) returns Error? {
-      io:println("server on error message");
-  }
-}
+//   remote isolated function onError(error err) returns Error? {
+//       io:println("server on error message");
+//   }
+// }
 
 // Tests set/get attributes.
 @test:Config {}

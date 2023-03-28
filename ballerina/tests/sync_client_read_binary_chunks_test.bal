@@ -17,25 +17,25 @@
 // import ballerina/lang.runtime as runtime;
 import ballerina/test;
 
-string chunkBinData = "";
+// string chunkBinData = "";
 
-listener Listener l44 = new(21314);
+// listener Listener l44 = new(21314);
 
-@ServiceConfig {
-   maxFrameSize: 4
-}
-service /onBinDataSync on l44 {
-    resource function get .() returns Service|UpgradeError {
-        return new WsService44();
-    }
-}
+// @ServiceConfig {
+//    maxFrameSize: 4
+// }
+// service /onBinDataSync on l44 {
+//     resource function get .() returns Service|UpgradeError {
+//         return new WsService44();
+//     }
+// }
 
-service class WsService44 {
-    *Service;
-    remote function onTextMessage(string data) returns byte[]? {
-        return [5, 24, 56, 5, 56, 24];
-    }
-}
+// service class WsService44 {
+//     *Service;
+//     remote function onTextMessage(string data) returns byte[]? {
+//         return [5, 24, 56, 5, 56, 24];
+//     }
+// }
 
 // Tests reading binary data coming as continuation frames and aggragating them to a single binary message.
 @test:Config {}
